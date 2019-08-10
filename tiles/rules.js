@@ -14,17 +14,16 @@
 			}
 			if (count-1<=0){log('Sealing connection');return true}
 		//}
-	/*	
-		if (tile.type=='post_hspawn_room.vmf'||tile.type=='post_zspawn_room.vmf'){
+
+		if (tile.type=='post_hspawn.vmf'||tile.type=='post_zspawn.vmf'){
 			for (let key in placedtiles){
 				let ctile = placedtiles[key]
-				if (ctile[0].type=='post_hspawn_room.vmf'||ctile[0].type=='post_zspawn_room.vmf'){
-					if (ctile[1].subtract(center).abs().length()<1600){log('Too close to other spawn');return true}
+				if (ctile[0].type=='post_hspawn.vmf'||ctile[0].type=='post_zspawn.vmf'){
+					if (ctile[2].add(ctile[3]).distance(center)<8000){log('Too close to other spawn');return true}
 					break
 				}
 			}
 		}
-	*/
 	}
 
 

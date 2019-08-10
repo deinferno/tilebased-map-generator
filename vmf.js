@@ -2,7 +2,8 @@
 
 (function() {
 
-	const TILESIZE = 8
+	const TILESIZE = 32
+	const DOOR_MIN_SIZE = 16
 
 	var fs = require('fs')
 
@@ -40,6 +41,12 @@
 		var lines = contents.split('\n')
 
 		var filename = file.replace(/^.*[\\\/]/, '')
+
+		var times =  filename.match(/.*_(\d+)\.vmf/)
+
+		if (times){
+			times = Number(times[1]);
+		}
 
 		var maproot = new VMFMap(filename)
 		var currentobj = maproot 
@@ -79,6 +86,24 @@
     		prevline = lines[i].trim()
 		}
 
+		var cordmin = maproot.cordonBounds()[0]
+
+		if (cordmin.x != 0 || cordmin.y != 0 || cordmin.y != 0 ){
+			console.log('WARNING: Cordons mins are not 0')
+		}
+
+		var cordmax = maproot.cordonBounds()[1]
+
+		var cordonsize = cordmin.abs().add(cordmax)
+
+		if (cordonsize.x % TILESIZE != 0 || cordonsize.y % TILESIZE != 0 || cordonsize.z % TILESIZE != 0){
+			console.log(cordonsize)
+			console.log('Closest to tile size multiply')
+			console.log(Math.floor(cordonsize.x/TILESIZE)*TILESIZE,Math.floor(cordonsize.y/TILESIZE)*TILESIZE,Math.floor(cordonsize.z/TILESIZE)*TILESIZE)
+			console.log(Math.ceil(cordonsize.x/TILESIZE)*TILESIZE,Math.ceil(cordonsize.y/TILESIZE)*TILESIZE,Math.ceil(cordonsize.z/TILESIZE)*TILESIZE)
+			throw new Error('Map doesn\'t have cordons that are multiple of '+TILESIZE+' ');
+		}
+
 		maproot.recursiveTranslate(maproot.cordonBounds()[0].multiply(-1))
 		maproot.translateBounds(maproot.cordonBounds()[0].multiply(-1))
 		maproot.removeCordonBrushes()
@@ -98,7 +123,7 @@
 
 		if (!exist){throw new Error('Map don\'t contain any connectable sides');}
 
-		return maproot
+		return {maproot:maproot,times:times}
 	}
 
 	class VMFObject {
@@ -263,7 +288,7 @@
 		}
 
 		cordonBounds() {
-			return [VMFVector(this.cordon.prop.mins),VMFVector(this.cordon.prop.maxs)]
+			return [VMFVector(this.cordon.prop.mins).fix(),VMFVector(this.cordon.prop.maxs).fix()]
 		}
 
 		rotatedBounds(angle,center) {
@@ -332,15 +357,10 @@
 			}
 		}
 
-		switchVisGroups(holeid,random){
-			if (this.sidematrixes_cache){delete this.sidematrixes_cache}
-			if (!this.visgroups.children.visgroup){return}
+		switchDoorVisGroup(holeid){
 
 			var visgroup = holeid ? this.getEntityByID(holeid).prop.enablevisgroup : "";
 			var visgroupid;
-			var variantsgroups = [];
-			var variantgroup;
-			var terminategroups = [];
 
 			for (let evisgroup of (this.visgroups.children.visgroup.type == 'visgroup' ? [this.visgroups.children.visgroup] : this.visgroups.children.visgroup)){
 				let name = evisgroup.prop.name
@@ -348,6 +368,40 @@
 					visgroupid=evisgroup.prop.visgroupid
 					log("Unhiding visgroup "+name)
 				}
+			}
+
+			if (this.world.children.hidden){
+				for (let hidden of (this.world.children.hidden.type == 'hidden' ? [this.world.children.hidden] : this.world.children.hidden)){
+					let solid = hidden.children.solid
+					if (solid.children.editor.prop.visgroupid==visgroupid){
+						solid.children.editor.prop.visgroupshown = '1'
+						this.children.world.children.solid.push(solid)
+					}
+				}
+			}
+
+			if (this.children.hidden){
+				for (let hidden of (this.children.hidden.type == 'hidden' ? [this.children.hidden] : this.children.hidden)){
+					let entity = hidden.children.entity
+					if (entity.children.editor.prop.visgroupid==visgroupid){
+						entity.children.editor.prop.visgroupshown = '1'
+						this.entity.push(entity)
+					}
+				}
+			}
+
+		}
+
+		switchVisGroups(random){
+			if (this.sidematrixes_cache){delete this.sidematrixes_cache}
+			if (!this.visgroups.children.visgroup){return}
+
+			var variantsgroups = [];
+			var variantgroup;
+			var terminategroups = [];
+
+			for (let evisgroup of (this.visgroups.children.visgroup.type == 'visgroup' ? [this.visgroups.children.visgroup] : this.visgroups.children.visgroup)){
+				let name = evisgroup.prop.name
 				if (name.startsWith('variant_')){
 					variantsgroups.push([evisgroup.prop.visgroupid,name.replace('variant_','')])
 				}
@@ -372,7 +426,7 @@
 			if (this.world.children.hidden){
 				for (let hidden of (this.world.children.hidden.type == 'hidden' ? [this.world.children.hidden] : this.world.children.hidden)){
 					let solid = hidden.children.solid
-					if (solid.children.editor.prop.visgroupid==visgroupid||solid.children.editor.prop.visgroupid==variantgroup){
+					if (solid.children.editor.prop.visgroupid==variantgroup){
 						solid.children.editor.prop.visgroupshown = '1'
 						this.children.world.children.solid.push(solid)
 					}
@@ -390,7 +444,7 @@
 			if (this.children.hidden){
 				for (let hidden of (this.children.hidden.type == 'hidden' ? [this.children.hidden] : this.children.hidden)){
 					let entity = hidden.children.entity
-					if (entity.children.editor.prop.visgroupid==visgroupid||entity.children.editor.prop.visgroupid==variantgroup){
+					if (entity.children.editor.prop.visgroupid==variantgroup){
 						entity.children.editor.prop.visgroupshown = '1'
 						this.entity.push(entity)
 					}
@@ -398,7 +452,6 @@
 				delete this.children.hidden
 			}
 			
-
 			delete this.visgroups.children
 
 			//	getEntityByID
@@ -559,7 +612,7 @@
 					max.z=Math.max(max.z,planes[plane].z)
 				}
 			}
-			return [min,max]
+			return [min.fix(),max.fix()]
 		}
 
 		rBounds(angle,center) {

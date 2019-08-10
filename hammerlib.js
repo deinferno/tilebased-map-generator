@@ -43,6 +43,10 @@ class Vector {
     	return this.x * v.x + this.y * v.y + this.z * v.z;
   	}
 
+	distance(v) {
+    	return Math.sqrt(Math.pow(this.x - v.x,2) + Math.pow(this.y - v.y,2) + Math.pow(this.z - v.z,2));
+  	}
+
 	length() {
     	return Math.sqrt(this.dot(this));
 	}
@@ -61,6 +65,10 @@ class Vector {
 
 	toString(){
 		return (this.sbrackets ? '(' : '')+this.x+' '+this.y+' '+this.z+(this.sbrackets ? ')' : '')
+	}
+
+	fix(){
+		return new Vector(this.x.toFixed(4),this.y.toFixed(4),this.z.toFixed(4))
 	}
 
 	rotateZ(a){

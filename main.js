@@ -1,3 +1,5 @@
+#!/bin/node
+
 "use strict";
 
 /* SHITCODE huh */
@@ -35,19 +37,22 @@ var special_tiles_o = [];
 
 for (let filename of files) {
 	log('Parsing '+filename+' with index '+tiles_o.length);
-	let tile = vmf.parse('tiles/'+filename);
+	let {maproot,times} = vmf.parse('tiles/'+filename);
 	if (filename.startsWith('post_')) {
 		log(' *Post tile');
-		tile.onlyOnce();
-		special_tiles_o.push(tile);
+		maproot.onlyOnce();
+		special_tiles_o.push(maproot);
 		continue;
-	}
-	if (filename.startsWith('meta_')) {
-		protometatile=tile;
+	} else if (filename.startsWith('meta_')) {
+		protometatile=maproot;
 		log(' *META TILE*');
 		continue;
+	} else {
+		if (times){
+		for (let i=0;i < times;i++){
+		tiles_o.push(maproot);
+		} } else {tiles_o.push(maproot);}
 	}
-	tiles_o.push(tile);
 }
 
 
@@ -216,7 +221,7 @@ function tryAddTiles(tileset, prevtile, sides, angle, center, cbounds, index){
 
 						let ctile = tile.deepcopy()
 						prevtile.removePortalByID(hole[3],true);
-						ctile.switchVisGroups(thole[3],random)
+						ctile.switchDoorVisGroup(thole[3])
 						ctile.removePortalByID(thole[3]);
 						ctile.addToID(metatile.getMaximumID());
 	
@@ -246,6 +251,61 @@ function tryAddTiles(tileset, prevtile, sides, angle, center, cbounds, index){
 	} 
 }
 
+function loopDoors(){
+	for (var tkey in tileweb){
+		var tdata = tileweb[tkey]
+		var sides = tdata[1];
+		var sideslen = sides.length;
+		var sidematrixes = tdata[0].sidematrixes(tdata[2], tdata[3])
+
+		for (let skey = 0; skey < sideslen; skey++){
+			let matrix = sidematrixes[sides[skey][0]];
+			let side = sides[skey][0];
+
+			let mkeys = arrayKeys(matrix);
+			let mkeyslen = mkeys.length;
+
+			for (let mkey = 0; mkey < mkeyslen; mkey++){
+				let hole = matrix[mkeys[mkey]];
+				let holesize = [hole[1][0] - hole[0][0], hole[1][1] - hole[0][1]];
+				let holepos = planeToVector(side, tdata[4], [hole[0][0] + (holesize[0] / 2),hole[0][1] + (holesize[1] / 2)]);
+	
+	
+				for (var otkey in tileweb){
+					if (otkey==tkey){continue;}
+					var otdata = tileweb[otkey];
+					var osides = otdata[1];
+					var osideslen = osides.length;
+					var osidematrixes = otdata[0].sidematrixes(otdata[2], otdata[3])
+					for (let oskey = 0; oskey < osideslen; oskey++){
+						let omatrix = osidematrixes[osides[oskey][0]];
+						let oside = osides[oskey][0];
+
+						let omkeys = arrayKeys(omatrix);
+						let omkeyslen = omkeys.length;
+
+						for (let omkey = 0; omkey < omkeyslen; omkey++){
+							let ohole = omatrix[omkeys[omkey]];
+							let oholesize = [ohole[1][0] - ohole[0][0], ohole[1][1] - ohole[0][1]];
+							let oholepos = planeToVector(oside, otdata[4], [ohole[0][0] + (oholesize[0] / 2),ohole[0][1] + (oholesize[1] / 2)]);
+
+							if (!hole[2].some(r=> ohole[2].includes(r)) || holesize[0] != oholesize[0] || holesize[1] != oholesize[1]){continue}
+
+							if (holepos.distance(oholepos)>96){continue}
+
+							log('Connecting tile doors of tiles '+hole[3]+' '+tkey+'<==>'+otkey+' '+ohole[3]);
+
+							tdata[0].removePortalByID(hole[3],true);
+							otdata[0].switchDoorVisGroup(ohole[3]);
+							otdata[0].removePortalByID(ohole[3]);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 var placedtiles;
 var tiles;
 var special_tiles;
@@ -259,13 +319,12 @@ placedtiles = [];
 cordons = [];
 
 metatile = protometatile.deepcopy();
-metatile.switchVisGroups(null,random)
 addToCordonTable(metatile.cordonBounds());
 tileweb.push([metatile,metatile.connectablesides(),null,null,metatile.cordonBounds()]);
 
 var cbounds = metatile.cordonBounds();
 var center = cbounds[0].add(cbounds[1].subtract(cbounds[0]).multiply(0.5));
-placedtiles.push([metatile,center]);
+placedtiles.push([metatile,0,center,new hlib.Vector(0,0,0),null]);
 
 tilemap_num = 1;
 
@@ -295,14 +354,16 @@ for (let twkey=0; twkey < tileweblen; twkey++)
 
 }
 
-//if (special_tiles.length>0){log('Second stage failed. Retrying...');retry();return}
+loopDoors();
+
+if (special_tiles.length>0){log('Second stage failed. Retrying...');retry();return}
 
 log("MERGING...")
 for (let key in placedtiles){
-	if (key==0){continue}
+	if (key==0){placedtiles[0][0].switchVisGroups(random);continue}
 	let data = placedtiles[key]
 	let ctile = data[0]
-	console.log(ctile)
+	ctile.switchVisGroups(random)
 	ctile.recursiveRotate(data[1], data[2]);
 	ctile.recursiveTranslate(data[3]);
 	metatile.merge(ctile);
