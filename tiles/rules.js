@@ -8,9 +8,9 @@
 		if (basetile.type==tile.type){return true}
 		//if (connections.length-1+tileconnections.length<1){
 			let count = 0
-			for (let data of tileconnections){count=count+data[1]}
+			for (let data of tileconnections){if (data){count=count+data[1]}}
 			for (let node of tileweb){
-				for (let data of node[1]){count=count+data[1]}
+				for (let data of node[1]){if (data){count=count+data[1]}}
 			}
 			if (count-1<=0){log('Sealing connection');return true}
 		//}
@@ -19,7 +19,7 @@
 			for (let key in placedtiles){
 				let ctile = placedtiles[key]
 				if (ctile[0].type=='post_hspawn.vmf'||ctile[0].type=='post_zspawn.vmf'){
-					if (ctile[2].add(ctile[3]).distance(center)<8000){log('Too close to other spawn');return true}
+					if (ctile[2].add(ctile[3]).distance(center)<3000){log('Too close to other spawn');return true}
 					break
 				}
 			}

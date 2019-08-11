@@ -1,0 +1,216 @@
+
+
+
+materialPath: C:\Program Files (x86)\Steam\steamapps\common\Source SDK Base 2013 Multiplayer\garrysmod\materials
+Loading C:\users\user\Desktop\tilebased-map-generator\tiles\empgard_dw_dw_buf_dw_dw.vmf
+Map revision 16
+material "alkaline/clean_walla" not found.
+Material not found!: ALKALINE/CLEAN_WALLA
+ConVarRef mat_reduceparticles doesn't point to an existing ConVar
+material "alkaline/clean_floora" not found.
+Material not found!: ALKALINE/CLEAN_FLOORA
+material "alkaline/clean_ceilinga" not found.
+Material not found!: ALKALINE/CLEAN_CEILINGA
+Could not locate GameData file garrysmod.fgd
+fixing up env_cubemap materials on brush sides...
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Processing areas...done (0)
+Building Faces...done (0)
+Chop Details...done (0)
+Find Visible Detail Sides...
+Merged 26 detail faces...done (0)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing C:\users\user\Desktop\tilebased-map-generator\tiles\empgard_dw_dw_buf_dw_dw.prt...Building visibility clusters...
+done (0)
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Displacement Alpha : 0...1...2...3...4...5...6...7...8...9...10
+Building Physics collision data...
+done (0) (35733 bytes)
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 126 texinfos to 68
+Reduced 12 texdatas to 12 (259 bytes to 259)
+Writing C:\users\user\Desktop\tilebased-map-generator\tiles\empgard_dw_dw_buf_dw_dw.bsp
+Wrote ZIP buffer, estimated size 87016, actual size 86802
+0 seconds elapsed
+CMaterialDict::Shutdown m_MissingList count: 3
+
+
+
+8 threads
+reading c:\users\user\desktop\tilebased-map-generator\tiles\empgard_dw_dw_buf_dw_dw.bsp
+reading c:\users\user\desktop\tilebased-map-generator\tiles\empgard_dw_dw_buf_dw_dw.prt
+  38 portalclusters
+  61 numportals
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Optimized: 0 visible clusters (0.00%)
+Total clusters visible: 1046
+Average clusters visible: 27
+Building PAS...
+Average clusters audible: 38
+visdatasize:699  compressed from 608
+writing c:\users\user\desktop\tilebased-map-generator\tiles\empgard_dw_dw_buf_dw_dw.bsp
+0 seconds elapsed
+
+
+
+[Reading texlights from 'lights.rad']
+[2 texlights parsed from 'lights.rad']
+
+Loading c:\users\user\desktop\tilebased-map-generator\tiles\empgard_dw_dw_buf_dw_dw.bsp
+166 faces
+5094 square feet [733604.63 square inches]
+0 Displacements
+0 Square Feet [0.00 Square Inches]
+166 patches before subdivision
+256 patches after subdivision
+15 direct lights
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10transfers 11385, max 107
+transfer lists:   0.1 megs
+0...1...2...3...4...5...6...7...8...9...10	Bounce #1 added RGB(955, 1453, 1625)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #2 added RGB(12, 28, 40)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #3 added RGB(0, 1, 2)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #4 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done<0.0001 sec>
+0...1...2...3...4...5...6...7...8...9...10FinalLightFace Done
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+0...1...2...3...4...5...6...7...8...9...10Writing leaf ambient...done
+Computing static prop lighting : 00...1...2...3...4...5...6...7...8...9...10
+Ready to Finish
+
+Object names       Objects/Maxobjs  Memory / Maxmem  Fullness 
+------------       ---------------  ---------------  -------- 
+models                   7/4096          336/196608   ( 0.2%) 
+brushes                 98/32768        1176/393216   ( 0.3%) 
+brushsides             592/65536        4736/524288   ( 0.9%) 
+planes                 354/65536        7080/1310720  ( 0.5%) 
+vertexes               388/65536        4656/786432   ( 0.6%) 
+nodes                  186/65536        5952/2097152  ( 0.3%) 
+texinfos                68/12288        4896/884736   ( 0.6%) 
+texdata                 12/2048          384/65536    ( 0.6%) 
+dispinfos                0/0               0/0        ( 0.0%) 
+disp_verts               0/0               0/0        ( 0.0%) 
+disp_tris                0/0               0/0        ( 0.0%) 
+disp_lmsamples           0/0               0/0        ( 0.0%) 
+faces                  166/65536        9296/3670016  ( 0.3%) 
+hdr faces                0/65536           0/3670016  ( 0.0%) 
+origfaces              130/65536        7280/3670016  ( 0.2%) 
+leaves                 194/65536        6208/2097152  ( 0.3%) 
+leaffaces              183/65536         366/131072   ( 0.3%) 
+leafbrushes            312/65536         624/131072   ( 0.5%) 
+areas                    2/1024           16/8192     ( 0.2%) 
+surfedges             1340/512000       5360/2048000  ( 0.3%) 
+edges                  886/256000       3544/1024000  ( 0.3%) 
+LDR worldlights         15/16384        1320/1441792  ( 0.1%) 
+HDR worldlights          0/16384           0/1441792  ( 0.0%) 
+leafwaterdata            0/32768           0/393216   ( 0.0%) 
+waterstrips             16/131072        160/1310720  ( 0.0%) 
+waterverts               0/131072          0/1572864  ( 0.0%) 
+waterindices           351/131072        702/262144   ( 0.3%) 
+cubemapsamples           0/1024            0/16384    ( 0.0%) 
+overlays                 0/1024            0/360448   ( 0.0%) 
+LDR lightdata         [variable]        4960/0        ( 0.0%) 
+HDR lightdata         [variable]           0/0        ( 0.0%) 
+visdata               [variable]         699/16777216 ( 0.0%) 
+entdata               [variable]       11133/393216   ( 2.8%) 
+LDR ambient table      194/65536         776/262144   ( 0.3%) 
+HDR ambient table      194/65536         776/262144   ( 0.3%) 
+LDR leaf ambient       293/65536        8204/1835008  ( 0.4%) 
+HDR leaf ambient       194/65536        5432/1835008  ( 0.3%) 
+occluders                0/0               0/0        ( 0.0%) 
+occluder polygons        0/0               0/0        ( 0.0%) 
+occluder vert ind        0/0               0/0        ( 0.0%) 
+detail props          [variable]           1/12       ( 8.3%) 
+static props          [variable]           1/1658     ( 0.1%) 
+pakfile               [variable]       86802/0        ( 0.0%) 
+physics               [variable]       35733/4194304  ( 0.9%) 
+physics terrain       [variable]           2/1048576  ( 0.0%) 
+
+Level flags = 1
+
+Total triangle count: 488
+Writing c:\users\user\desktop\tilebased-map-generator\tiles\empgard_dw_dw_buf_dw_dw.bsp
+0 seconds elapsed
+
+
+
+[Reading texlights from 'lights.rad']
+[2 texlights parsed from 'lights.rad']
+
+Loading c:\users\user\desktop\tilebased-map-generator\tiles\empgard_dw_dw_buf_dw_dw.bsp
+166 faces
+5094 square feet [733604.63 square inches]
+0 Displacements
+0 Square Feet [0.00 Square Inches]
+166 patches before subdivision
+256 patches after subdivision
+15 direct lights
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10transfers 11385, max 107
+transfer lists:   0.1 megs
+0...1...2...3...4...5...6...7...8...9...10	Bounce #1 added RGB(955, 1453, 1625)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #2 added RGB(12, 28, 40)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #3 added RGB(0, 1, 2)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #4 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done<0.0001 sec>
+0...1...2...3...4...5...6...7...8...9...10FinalLightFace Done
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+0...1...2...3...4...5...6...7...8...9...10Writing leaf ambient...done
+Computing static prop lighting : 00...1...2...3...4...5...6...7...8...9...10
+Ready to Finish
+
+Object names       Objects/Maxobjs  Memory / Maxmem  Fullness 
+------------       ---------------  ---------------  -------- 
+models                   7/4096          336/196608   ( 0.2%) 
+brushes                 98/32768        1176/393216   ( 0.3%) 
+brushsides             592/65536        4736/524288   ( 0.9%) 
+planes                 354/65536        7080/1310720  ( 0.5%) 
+vertexes               388/65536        4656/786432   ( 0.6%) 
+nodes                  186/65536        5952/2097152  ( 0.3%) 
+texinfos                68/12288        4896/884736   ( 0.6%) 
+texdata                 12/2048          384/65536    ( 0.6%) 
+dispinfos                0/0               0/0        ( 0.0%) 
+disp_verts               0/0               0/0        ( 0.0%) 
+disp_tris                0/0               0/0        ( 0.0%) 
+disp_lmsamples           0/0               0/0        ( 0.0%) 
+faces                  166/65536        9296/3670016  ( 0.3%) 
+hdr faces              166/65536        9296/3670016  ( 0.3%) 
+origfaces              130/65536        7280/3670016  ( 0.2%) 
+leaves                 194/65536        6208/2097152  ( 0.3%) 
+leaffaces              183/65536         366/131072   ( 0.3%) 
+leafbrushes            312/65536         624/131072   ( 0.5%) 
+areas                    2/1024           16/8192     ( 0.2%) 
+surfedges             1340/512000       5360/2048000  ( 0.3%) 
+edges                  886/256000       3544/1024000  ( 0.3%) 
+LDR worldlights         15/16384        1320/1441792  ( 0.1%) 
+HDR worldlights         15/16384        1320/1441792  ( 0.1%) 
+leafwaterdata            0/32768           0/393216   ( 0.0%) 
+waterstrips             16/131072        160/1310720  ( 0.0%) 
+waterverts               0/131072          0/1572864  ( 0.0%) 
+waterindices           351/131072        702/262144   ( 0.3%) 
+cubemapsamples           0/1024            0/16384    ( 0.0%) 
+overlays                 0/1024            0/360448   ( 0.0%) 
+LDR lightdata         [variable]        4960/0        ( 0.0%) 
+HDR lightdata         [variable]        4960/0        ( 0.0%) 
+visdata               [variable]         699/16777216 ( 0.0%) 
+entdata               [variable]       11133/393216   ( 2.8%) 
+LDR ambient table      194/65536         776/262144   ( 0.3%) 
+HDR ambient table      194/65536         776/262144   ( 0.3%) 
+LDR leaf ambient       293/65536        8204/1835008  ( 0.4%) 
+HDR leaf ambient       293/65536        8204/1835008  ( 0.4%) 
+occluders                0/0               0/0        ( 0.0%) 
+occluder polygons        0/0               0/0        ( 0.0%) 
+occluder vert ind        0/0               0/0        ( 0.0%) 
+detail props          [variable]           1/12       ( 8.3%) 
+static props          [variable]           1/1658     ( 0.1%) 
+pakfile               [variable]       86802/0        ( 0.0%) 
+physics               [variable]       35733/4194304  ( 0.9%) 
+physics terrain       [variable]           2/1048576  ( 0.0%) 
+
+Level flags = 3
+
+Total triangle count: 488
+Writing c:\users\user\desktop\tilebased-map-generator\tiles\empgard_dw_dw_buf_dw_dw.bsp
+0 seconds elapsed

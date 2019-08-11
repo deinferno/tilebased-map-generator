@@ -11,8 +11,8 @@ var hlib = require('./hammerlib');
 var seed = require("./seedgenerator")
 var seedrandom = require('seedrandom');
 var argv = process.argv.slice(2)
-seed = seed(argv[0])
-const TILEMAP_LIMIT = parseInt(argv[1]) || 16;
+const TILEMAP_LIMIT = parseInt(argv[0]) || 32;
+seed = seed(argv[1])
 log('Seed is '+seed);
 var random = seedrandom(seed);
 
@@ -42,11 +42,9 @@ for (let filename of files) {
 		log(' *Post tile');
 		maproot.onlyOnce();
 		special_tiles_o.push(maproot);
-		continue;
 	} else if (filename.startsWith('meta_')) {
 		protometatile=maproot;
 		log(' *META TILE*');
-		continue;
 	} else {
 		if (times){
 		for (let i=0;i < times;i++){
@@ -101,13 +99,13 @@ function planeToVector(side, bounds, planepos) {
 		case 0:
 			return bounds[0].add(new hlib.Vector(c1,c2,size.z));
 		case 1:
-			return bounds[0].add(new hlib.Vector(c1,size.y,c2));
+			return bounds[0].add(new hlib.Vector(c1,size.y,c2/vmf.TILESIZE_ZMUL));
 		case 2:
-			return bounds[0].add(new hlib.Vector(0,c1,c2));
+			return bounds[0].add(new hlib.Vector(0,c1,c2/vmf.TILESIZE_ZMUL));
 		case 3:
-			return bounds[0].add(new hlib.Vector(size.x,c1,c2));
+			return bounds[0].add(new hlib.Vector(size.x,c1,c2/vmf.TILESIZE_ZMUL));
 		case 4:
-			return bounds[0].add(new hlib.Vector(c1,0,c2));
+			return bounds[0].add(new hlib.Vector(c1,0,c2/vmf.TILESIZE_ZMUL));
 		case 5:
 			return bounds[0].add(new hlib.Vector(c1,c2,0));
 	}
@@ -147,6 +145,7 @@ function tryAddTiles(tileset, prevtile, sides, angle, center, cbounds, index){
 	var sidematrixes = prevtile.sidematrixes(angle, center)
 
 	for (let skey = 0; skey < sideslen; skey++){
+		if (!sides[skey]){continue;}
 		let matrix = sidematrixes[sides[skey][0]];
 		let side = sides[skey][0];
 
@@ -204,7 +203,7 @@ function tryAddTiles(tileset, prevtile, sides, angle, center, cbounds, index){
 						let tsides = tile.connectablesides(tangle,tcenter);
 						let tsideslength = tsides.length;
 						for (let tskey = 0; tskey < tsideslength; tskey++)
-							if (tsides[tskey][0] == tside){tsides[tskey][1]--;if (tsides[tskey][1]<=0){tsides.splice(tskey, 1)};break}	
+							if (tsides[tskey][0] == tside){tsides[tskey][1]--;if (tsides[tskey][1]<=0){delete tsides[tskey]};break}	
 	
 						if (rules.handleTilePlacement(tileweb, placedtiles, tileweb[index][1], tsides, prevtile, tile, offset.add(tcenter))){continue}
 
@@ -220,9 +219,9 @@ function tryAddTiles(tileset, prevtile, sides, angle, center, cbounds, index){
 						// Add flags to portaldoors (!endpoint and stuff)
 
 						let ctile = tile.deepcopy()
-						prevtile.removePortalByID(hole[3],true);
-						ctile.switchDoorVisGroup(thole[3])
-						ctile.removePortalByID(thole[3]);
+						//prevtile.removePortalByID(hole[3],true);
+						//ctile.switchDoorVisGroup(thole[3])
+						//ctile.removePortalByID(thole[3]);
 						ctile.addToID(metatile.getMaximumID());
 	
 						if (ctile.once){
@@ -232,12 +231,13 @@ function tryAddTiles(tileset, prevtile, sides, angle, center, cbounds, index){
 	
 						sides[skey][1]--;
 						if (sides[skey][1]<=0){
-							tileweb[index][1].splice(skey, 1);
-							if (sides.length==0){tileweb.splice(index, 1)};
+							delete tileweb[index][1][skey];
+							//tileweb[index][1].splice(skey, 1);
+							//if (sides.length==0){tileweb.splice(index, 1)};
 						}
 						
-						tileweb.push([ctile,tsides,tangle,tcenter,ctbounds]);
-						placedtiles.push([ctile,tangle,tcenter,offset,hole[3]]);
+						tileweb.push([ctile,tsides,tangle,tcenter,ctbounds,tile.connectablesides(tangle,tcenter)]);
+						placedtiles.push([ctile,tangle,tcenter,offset,hole[3],tsides]);
 	
 						return true
 					}
@@ -251,14 +251,18 @@ function tryAddTiles(tileset, prevtile, sides, angle, center, cbounds, index){
 	} 
 }
 
+var toremove=[];
+
 function loopDoors(){
+	toremove=[];
 	for (var tkey in tileweb){
 		var tdata = tileweb[tkey]
-		var sides = tdata[1];
+		var sides = tdata[5];
 		var sideslen = sides.length;
 		var sidematrixes = tdata[0].sidematrixes(tdata[2], tdata[3])
 
 		for (let skey = 0; skey < sideslen; skey++){
+			if (!sides[skey]){continue;}
 			let matrix = sidematrixes[sides[skey][0]];
 			let side = sides[skey][0];
 
@@ -274,10 +278,11 @@ function loopDoors(){
 				for (var otkey in tileweb){
 					if (otkey==tkey){continue;}
 					var otdata = tileweb[otkey];
-					var osides = otdata[1];
+					var osides = otdata[5];
 					var osideslen = osides.length;
 					var osidematrixes = otdata[0].sidematrixes(otdata[2], otdata[3])
 					for (let oskey = 0; oskey < osideslen; oskey++){
+						if (!osides[oskey]){continue;}
 						let omatrix = osidematrixes[osides[oskey][0]];
 						let oside = osides[oskey][0];
 
@@ -285,6 +290,7 @@ function loopDoors(){
 						let omkeyslen = omkeys.length;
 
 						for (let omkey = 0; omkey < omkeyslen; omkey++){
+							if (!sides[skey]){break;}
 							let ohole = omatrix[omkeys[omkey]];
 							let oholesize = [ohole[1][0] - ohole[0][0], ohole[1][1] - ohole[0][1]];
 							let oholepos = planeToVector(oside, otdata[4], [ohole[0][0] + (oholesize[0] / 2),ohole[0][1] + (oholesize[1] / 2)]);
@@ -293,15 +299,72 @@ function loopDoors(){
 
 							if (holepos.distance(oholepos)>96){continue}
 
+							sides[skey][1]--;
+							if (sides[skey][1]<=0){
+								//tileweb[tkey][5].splice(skey, 1);
+								delete tileweb[tkey][5][skey];
+								//if (sides.length==0){tileweb.splice(tkey, 1)};
+							}
+
+							osides[oskey][1]--;
+							if (osides[oskey][1]<=0){
+								delete tileweb[otkey][5][oskey];
+								//if (osides.length==0){tileweb.splice(otkey, 1)};
+							}
+
 							log('Connecting tile doors of tiles '+hole[3]+' '+tkey+'<==>'+otkey+' '+ohole[3]);
 
-							tdata[0].removePortalByID(hole[3],true);
-							otdata[0].switchDoorVisGroup(ohole[3]);
-							otdata[0].removePortalByID(ohole[3]);
+							toremove.push([tdata[0],hole[3],otdata[0],ohole[3]])
+
+							//tdata[0].removePortalByID(hole[3],true);
+							//otdata[0].switchDoorVisGroup(ohole[3]);
+							//otdata[0].removePortalByID(ohole[3]);
 						}
 					}
 				}
 			}
+		}
+	}
+}
+
+function removeTiles(){
+	for (var tkey in tileweb){
+		var tdata = tileweb[tkey]
+		var sides = tdata[5];
+		var sideslen = sides.length;
+		if (sideslen>0){
+			var sidematrixes = tdata[0].sidematrixes(tdata[2], tdata[3])
+			for (let skey = 0; skey < sideslen; skey++){
+				if (!sides[skey]){continue;}
+				let matrix = sidematrixes[sides[skey][0]];
+				let side = sides[skey][0];
+	
+				let mkeys = arrayKeys(matrix);
+				let mkeyslen = mkeys.length;
+	
+				for (let mkey = 0; mkey < mkeyslen; mkey++){
+					let hole = matrix[mkeys[mkey]];
+					if (hole[4]=="1"){
+						log("Unsatisfied connection deleting tile "+tkey+" "+tdata[0].type)
+						tdata[0].removed = true;	
+						delete tileweb[tkey][0]
+						delete tileweb[tkey]
+						delete placedtiles[tkey][0]
+						delete placedtiles[tkey]
+					}
+				}
+			}
+		}
+	}
+}
+
+function loopdoors_post(){
+	log("Removing doors and switching vis groups")
+	for (var data of toremove){
+		if (data[0]&&data[2]&&!data[0].removed&&!data[2].removed){
+		data[0].removePortalByID(data[1],true);
+		data[2].switchDoorVisGroup(data[3]);
+		data[2].removePortalByID(data[3]);
 		}
 	}
 }
@@ -320,7 +383,7 @@ cordons = [];
 
 metatile = protometatile.deepcopy();
 addToCordonTable(metatile.cordonBounds());
-tileweb.push([metatile,metatile.connectablesides(),null,null,metatile.cordonBounds()]);
+tileweb.push([metatile,metatile.connectablesides(),null,null,metatile.cordonBounds(),metatile.connectablesides()]);
 
 var cbounds = metatile.cordonBounds();
 var center = cbounds[0].add(cbounds[1].subtract(cbounds[0]).multiply(0.5));
@@ -334,11 +397,14 @@ while (succ) {
 if (tiles.length==0||tilemap_num>=TILEMAP_LIMIT) {break}
 succ = false;
 let tileweblen = tileweb.length;
-shuffleArray(tileweb);
+let twkeys = arrayKeys(tileweb);
+shuffleArray(twkeys)
+//shuffleArray(tileweb);
 
-for (let twkey=0; twkey < tileweblen; twkey++)
+for (let twkeykey=0; twkeykey < tileweblen; twkeykey++){
+	let twkey = twkeys[twkeykey];
 	if (tryAddTiles(tiles,tileweb[twkey][0],tileweb[twkey][1],tileweb[twkey][2],tileweb[twkey][3],tileweb[twkey][4],twkey)){succ=true;break}
-
+}
 }
 
 if (tilemap_num<TILEMAP_LIMIT&&tiles.length>0){log('First stage failed. Retrying...');retry();return}
@@ -347,16 +413,24 @@ while (succ) {
 if (special_tiles.length==0) {break}
 succ = false;
 let tileweblen = tileweb.length;
-shuffleArray(tileweb);
+let twkeys = arrayKeys(tileweb);
+shuffleArray(twkeys)
 
-for (let twkey=0; twkey < tileweblen; twkey++)
+//shuffleArray(tileweb);
+
+for (let twkeykey=0; twkeykey < tileweblen; twkeykey++){
+	let twkey = twkeys[twkeykey];
 	if (tryAddTiles(special_tiles,tileweb[twkey][0],tileweb[twkey][1],tileweb[twkey][2],tileweb[twkey][3],tileweb[twkey][4],twkey)){succ=true;break}
-
 }
+}
+
+if (special_tiles.length>0){log('Second stage failed. Retrying...');retry();return}
 
 loopDoors();
 
-if (special_tiles.length>0){log('Second stage failed. Retrying...');retry();return}
+removeTiles();
+
+loopdoors_post();
 
 log("MERGING...")
 for (let key in placedtiles){

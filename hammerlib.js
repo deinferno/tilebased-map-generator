@@ -51,6 +51,11 @@ class Vector {
     	return Math.sqrt(this.dot(this));
 	}
 
+
+	equal(v) {
+		return this.x == v.x && this.y == v.y && this.z == v.z
+	}
+
 	floor() {
 		return new Vector(floor(this.x),floor(this.y),floor(this.z), this.sbrackets)
 	}

@@ -2,9 +2,6 @@
 
 (function() {
 
-	const TILESIZE = 32
-	const DOOR_MIN_SIZE = 16
-
 	var fs = require('fs')
 
 	var hlib = require('./hammerlib')
@@ -13,9 +10,16 @@
 
 	var log = console.log
 
+	const TILESIZE = 128
+	const TILESIZE_Z = 32
+	const TILESIZE_ZMUL = 4
+	//const DOOR_MIN_SIZE = 16
+	const TILESIZE_VEC = new hlib.Vector(TILESIZE,TILESIZE,TILESIZE_Z)
+
 	//const OUTSIDE_MATERIAL = 'MATSYS_REGRESSIONTEST/BACKGROUND'
 
-	const AREAPORTAL_MATERIAL = "TOOLS/TOOLSAREAPORTAL"
+	//const AREAPORTAL_MATERIAL = "TOOLS/TOOLSAREAPORTAL"
+	const AREAPORTAL_MATERIAL = "TOOLS/TOOLSHINT"
 
 	const snames = ['TOP','NORTH','WEST','EAST','SOUTH','BOTTOM']
 
@@ -89,20 +93,20 @@
 		var cordmin = maproot.cordonBounds()[0]
 
 		if (cordmin.x != 0 || cordmin.y != 0 || cordmin.y != 0 ){
-			console.log('WARNING: Cordons mins are not 0')
+			log('WARNING: Cordons mins are not 0')
 		}
 
 		var cordmax = maproot.cordonBounds()[1]
 
 		var cordonsize = cordmin.abs().add(cordmax)
 
-		if (cordonsize.x % TILESIZE != 0 || cordonsize.y % TILESIZE != 0 || cordonsize.z % TILESIZE != 0){
-			console.log(cordonsize)
-			console.log('Closest to tile size multiply')
-			console.log(Math.floor(cordonsize.x/TILESIZE)*TILESIZE,Math.floor(cordonsize.y/TILESIZE)*TILESIZE,Math.floor(cordonsize.z/TILESIZE)*TILESIZE)
-			console.log(Math.ceil(cordonsize.x/TILESIZE)*TILESIZE,Math.ceil(cordonsize.y/TILESIZE)*TILESIZE,Math.ceil(cordonsize.z/TILESIZE)*TILESIZE)
-			throw new Error('Map doesn\'t have cordons that are multiple of '+TILESIZE+' ');
-		}
+		/*if (cordonsize.x % TILESIZE != 0 || cordonsize.y % TILESIZE != 0 || cordonsize.z % TILESIZE_Z != 0){
+			log(cordonsize)
+			log('Closest to tile size multiply')
+			log(Math.floor(cordonsize.x/TILESIZE)*TILESIZE,Math.floor(cordonsize.y/TILESIZE)*TILESIZE,Math.floor(cordonsize.z/TILESIZE_Z)*TILESIZE_Z)
+			log(Math.ceil(cordonsize.x/TILESIZE)*TILESIZE,Math.ceil(cordonsize.y/TILESIZE)*TILESIZE,Math.ceil(cordonsize.z/TILESIZE_Z)*TILESIZE_Z)
+			log('WARNING:Map doesn\'t have cordons that are multiple of '+TILESIZE+' or z isn\'t '+TILESIZE_Z);
+		}*/
 
 		maproot.recursiveTranslate(maproot.cordonBounds()[0].multiply(-1))
 		maproot.translateBounds(maproot.cordonBounds()[0].multiply(-1))
@@ -116,6 +120,11 @@
 
 		for (let i=0;i<=5;i++){
 			if (sm[i].length>0){
+				/*for (let tile of sm[i]) {
+					if (tile[0]){
+						var tile[0]
+					}
+				}	*/
 			log('  '+sm[i].length+' portal(s) at '+snames[i]+' side')
 			exist = true
 			}
@@ -358,7 +367,8 @@
 		}
 
 		switchDoorVisGroup(holeid){
-
+			if (!this.visgroups||!this.visgroups.children.visgroup){return}
+			if (holeid&&!this.getEntityByID(holeid)){return}
 			var visgroup = holeid ? this.getEntityByID(holeid).prop.enablevisgroup : "";
 			var visgroupid;
 
@@ -477,39 +487,49 @@
 			var cbounds = center ? this.rotatedBounds(angle,center) : this.cordonBounds()
 			var size = cbounds[1].subtract(cbounds[0])
 			var matrixes=[[],[],[],[],[],[]]
-			matrixes.size = new hlib.Vector(Math.round(size.x/TILESIZE),Math.round(size.y/TILESIZE),Math.round(size.z/TILESIZE))
+			matrixes.size = new hlib.Vector(size.x/TILESIZE,size.y/TILESIZE,size.z/TILESIZE_Z)
 
 			var portals=this.FindPortals()
 			for (let portal of portals){
 				let bounds=center ?  portal[0].rBounds(angle,center) : portal[0].bounds()
-				let minBounds=bounds[0].subtract(cbounds[0]).divide(TILESIZE)
-				let maxBounds=bounds[1].subtract(cbounds[0]).divide(TILESIZE)
+				let ccenter = bounds[0].add(bounds[1].subtract(bounds[0]).multiply(0.5));
+				let minBounds=bounds[0].subtract(cbounds[0])
+				let maxBounds=bounds[1].subtract(cbounds[0])
+				//let size = minBounds
+				//let bcenter = minBounds+
+
+				minBounds = minBounds.divide(TILESIZE_VEC)
+				maxBounds = maxBounds.divide(TILESIZE_VEC)
+
+
+				//if (!minBounds.equal(minBounds.floor())){throw new Error("Min bounds of "+portal[2]+" isn't valid "+minBounds)}
+				//if (!maxBounds.equal(maxBounds.floor())){throw new Error("Max bounds of "+portal[2]+" isn't valid "+maxBounds)}
 
 				let connectiontype = (portal[1] || '1').split('|')
 
 				switch (true) {
 					case bounds[1].z == cbounds[1].z:
-						matrixes[0].push([[minBounds.x,minBounds.y],[maxBounds.x,maxBounds.y],connectiontype,portal[2]])
+						matrixes[0].push([[minBounds.x,minBounds.y],[maxBounds.x,maxBounds.y],connectiontype,portal[2],portal[3]])
 						matrixes[0].nonempty = true
 						break
 					case bounds[1].y == cbounds[1].y:
-						matrixes[1].push([[minBounds.x,minBounds.z],[maxBounds.x,maxBounds.z],connectiontype,portal[2]])
+						matrixes[1].push([[minBounds.x,minBounds.z],[maxBounds.x,maxBounds.z],connectiontype,portal[2],portal[3]])
 						matrixes[1].nonempty = true
 						break
 					case bounds[0].x == cbounds[0].x:
-						matrixes[2].push([[minBounds.y,minBounds.z],[maxBounds.y,maxBounds.z],connectiontype,portal[2]])
+						matrixes[2].push([[minBounds.y,minBounds.z],[maxBounds.y,maxBounds.z],connectiontype,portal[2],portal[3]])
 						matrixes[2].nonempty = true
 						break
 					case bounds[1].x == cbounds[1].x:	
-						matrixes[3].push([[minBounds.y,minBounds.z],[maxBounds.y,maxBounds.z],connectiontype,portal[2]])
+						matrixes[3].push([[minBounds.y,minBounds.z],[maxBounds.y,maxBounds.z],connectiontype,portal[2],portal[3]])
 						matrixes[3].nonempty = true
 						break		
 					case bounds[0].y == cbounds[0].y:
-						matrixes[4].push([[minBounds.x,minBounds.z],[maxBounds.x,maxBounds.z],connectiontype,portal[2]])
+						matrixes[4].push([[minBounds.x,minBounds.z],[maxBounds.x,maxBounds.z],connectiontype,portal[2],portal[3]])
 						matrixes[4].nonempty = true
 						break
 					case bounds[0].z == cbounds[0].z:
-						matrixes[5].push([[minBounds.x,minBounds.y],[maxBounds.x,maxBounds.y],connectiontype,portal[2]])
+						matrixes[5].push([[minBounds.x,minBounds.y],[maxBounds.x,maxBounds.y],connectiontype,portal[2],portal[3]])
 						matrixes[5].nonempty = true
 				}
 			}
@@ -523,13 +543,13 @@
 			var portals=[]
 
 			if (this.entity.prop&&this.entity.prop.classname=="func_portaldoor"){
-				portals.push([this.entity.children.solid,this.entity.prop.connectiontype,this.entity.prop.id])
+				portals.push([this.entity.children.solid,this.entity.prop.connectiontype,this.entity.prop.id,this.entity.prop.mustconnect])
 				return portals
 			}
 
 			for (let key in this.entity){
 				if (this.entity[key].children.solid&&this.entity[key].prop.classname=="func_portaldoor"){
-					portals.push([this.entity[key].children.solid,this.entity[key].prop.connectiontype,this.entity[key].prop.id])
+					portals.push([this.entity[key].children.solid,this.entity[key].prop.connectiontype,this.entity[key].prop.id,this.entity[key].prop.mustconnect])
 				}
 			}
 			return portals
@@ -564,7 +584,7 @@
 		removePortalByID(id,ignoreareaportal){
 			if (this.sidematrixes_cache){delete this.sidematrixes_cache}
 			if (this.entity.prop&&this.entity.prop.id==id){
-				if (this.entity.prop.areaportal=="1"&&!ignoreareaportal){
+				if (entity.prop.nohint!="1"&&!ignoreareaportal){
 					for (let side of this.entity.children.solid.children.side){
 						side.prop.material = AREAPORTAL_MATERIAL
 					}
@@ -578,7 +598,8 @@
 			for (let key in this.entity){
 				let entity = this.entity[key]
 				if (entity.prop.id==id){
-					if (entity.prop.areaportal=="1"&&!ignoreareaportal){
+					//entity.prop.areaportal=="1"&&
+					if (entity.prop.nohint!="1"&&!ignoreareaportal){
 						for (let side of entity.children.solid.children.side){
 							side.prop.material = AREAPORTAL_MATERIAL
 						}
@@ -657,6 +678,8 @@
 
 	module.exports.snames = snames
 	module.exports.TILESIZE = TILESIZE
+	module.exports.TILESIZE_VEC = TILESIZE_VEC
+	module.exports.TILESIZE_ZMUL = TILESIZE_ZMUL
 	module.exports.parse = parse
 
 })()

@@ -1,0 +1,23 @@
+@include "base.fgd"
+@include "halflife2.fgd"
+@include "hl2mp.fgd"
+
+@SolidClass base(Targetname) = func_portaldoor : "MAPGENERATOR: Pseudo entity"
+[
+	// Keys
+
+	connectiontype(string) : "Connection ID" : "1" : "Sets connection id to restrict connection to other doors based on id if they have same size"
+	enablevisgroup(string) : "Vis group to enable" : "" : "Enable that visual group when func_portaldoor is used"
+
+	nohint(choices) : "No Hint" : 0 : "Do not turn that portaldoor into hint." =
+	[
+		1 : "Yes"
+		0 : "No"
+	]
+
+	mustconnect(choices) : "Must connect" : 0 : "Remove tile completly if that door doesn't connect" =
+	[
+		1 : "Yes"
+		0 : "No"
+	]
+]
