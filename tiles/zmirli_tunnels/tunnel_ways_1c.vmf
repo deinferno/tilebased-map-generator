@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8261"
-	"mapversion" "8"
+	"editorbuild" "8163"
+	"mapversion" "10"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "8"
+	"mapversion" "10"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -6369,10 +6369,10 @@ world
 	}
 	solid
 	{
-		"id" "6707"
+		"id" "6833"
 		side
 		{
-			"id" "3876"
+			"id" "3840"
 			"plane" "(-16376 16376 16376) (16376 16376 16376) (16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6383,7 +6383,7 @@ world
 		}
 		side
 		{
-			"id" "3875"
+			"id" "3839"
 			"plane" "(-16376 16376 16376) (-16376 -16376 16376) (-16376 -16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -6394,7 +6394,7 @@ world
 		}
 		side
 		{
-			"id" "3874"
+			"id" "3838"
 			"plane" "(16376 16376 -16376) (16376 -16376 -16376) (16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -6405,7 +6405,7 @@ world
 		}
 		side
 		{
-			"id" "3873"
+			"id" "3837"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6416,7 +6416,7 @@ world
 		}
 		side
 		{
-			"id" "3872"
+			"id" "3836"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6427,7 +6427,7 @@ world
 		}
 		side
 		{
-			"id" "3871"
+			"id" "3835"
 			"plane" "(1024 0 512) (1024 1024 512) (0 1024 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6438,7 +6438,7 @@ world
 		}
 		editor
 		{
-			"color" "0 195 132"
+			"color" "0 221 206"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -6446,10 +6446,10 @@ world
 	}
 	solid
 	{
-		"id" "6709"
+		"id" "6835"
 		side
 		{
-			"id" "3882"
+			"id" "3846"
 			"plane" "(-16376 -16376 -16376) (16376 -16376 -16376) (16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6460,7 +6460,7 @@ world
 		}
 		side
 		{
-			"id" "3881"
+			"id" "3845"
 			"plane" "(-16376 16376 16376) (-16376 -16376 16376) (-16376 -16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -6471,7 +6471,7 @@ world
 		}
 		side
 		{
-			"id" "3880"
+			"id" "3844"
 			"plane" "(16376 16376 -16376) (16376 -16376 -16376) (16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -6482,7 +6482,7 @@ world
 		}
 		side
 		{
-			"id" "3879"
+			"id" "3843"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6493,7 +6493,7 @@ world
 		}
 		side
 		{
-			"id" "3878"
+			"id" "3842"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6504,7 +6504,7 @@ world
 		}
 		side
 		{
-			"id" "3877"
+			"id" "3841"
 			"plane" "(1024 1024 0) (1024 0 0) (0 0 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6515,7 +6515,7 @@ world
 		}
 		editor
 		{
-			"color" "0 195 132"
+			"color" "0 221 206"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -6523,10 +6523,10 @@ world
 	}
 	solid
 	{
-		"id" "6711"
+		"id" "6837"
 		side
 		{
-			"id" "3888"
+			"id" "3852"
 			"plane" "(-16376 16376 16376) (-16376 -16376 16376) (-16376 -16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -6537,7 +6537,7 @@ world
 		}
 		side
 		{
-			"id" "3887"
+			"id" "3851"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6548,7 +6548,7 @@ world
 		}
 		side
 		{
-			"id" "3886"
+			"id" "3850"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6559,7 +6559,7 @@ world
 		}
 		side
 		{
-			"id" "3885"
+			"id" "3849"
 			"plane" "(0 1024 512) (1024 1024 512) (1024 0 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6570,7 +6570,7 @@ world
 		}
 		side
 		{
-			"id" "3884"
+			"id" "3848"
 			"plane" "(0 0 0) (1024 0 0) (1024 1024 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6581,7 +6581,7 @@ world
 		}
 		side
 		{
-			"id" "3883"
+			"id" "3847"
 			"plane" "(0 0 0) (0 0 512) (0 1024 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -6592,7 +6592,7 @@ world
 		}
 		editor
 		{
-			"color" "0 195 132"
+			"color" "0 221 206"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -6600,10 +6600,10 @@ world
 	}
 	solid
 	{
-		"id" "6713"
+		"id" "6839"
 		side
 		{
-			"id" "3894"
+			"id" "3858"
 			"plane" "(16376 16376 -16376) (16376 -16376 -16376) (16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -6614,7 +6614,7 @@ world
 		}
 		side
 		{
-			"id" "3893"
+			"id" "3857"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6625,7 +6625,7 @@ world
 		}
 		side
 		{
-			"id" "3892"
+			"id" "3856"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6636,7 +6636,7 @@ world
 		}
 		side
 		{
-			"id" "3891"
+			"id" "3855"
 			"plane" "(0 1024 512) (1024 1024 512) (1024 0 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6647,7 +6647,7 @@ world
 		}
 		side
 		{
-			"id" "3890"
+			"id" "3854"
 			"plane" "(0 0 0) (1024 0 0) (1024 1024 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6658,7 +6658,7 @@ world
 		}
 		side
 		{
-			"id" "3889"
+			"id" "3853"
 			"plane" "(1024 0 512) (1024 0 0) (1024 1024 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -6669,7 +6669,7 @@ world
 		}
 		editor
 		{
-			"color" "0 195 132"
+			"color" "0 221 206"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -6677,10 +6677,10 @@ world
 	}
 	solid
 	{
-		"id" "6715"
+		"id" "6841"
 		side
 		{
-			"id" "3900"
+			"id" "3864"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6691,7 +6691,7 @@ world
 		}
 		side
 		{
-			"id" "3899"
+			"id" "3863"
 			"plane" "(0 1024 512) (1024 1024 512) (1024 0 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6702,7 +6702,7 @@ world
 		}
 		side
 		{
-			"id" "3898"
+			"id" "3862"
 			"plane" "(0 0 0) (1024 0 0) (1024 1024 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6713,7 +6713,7 @@ world
 		}
 		side
 		{
-			"id" "3897"
+			"id" "3861"
 			"plane" "(0 1024 512) (0 0 512) (0 0 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -6724,7 +6724,7 @@ world
 		}
 		side
 		{
-			"id" "3896"
+			"id" "3860"
 			"plane" "(1024 1024 0) (1024 0 0) (1024 0 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -6735,7 +6735,7 @@ world
 		}
 		side
 		{
-			"id" "3895"
+			"id" "3859"
 			"plane" "(0 1024 0) (0 1024 512) (1024 1024 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6746,7 +6746,7 @@ world
 		}
 		editor
 		{
-			"color" "0 195 132"
+			"color" "0 221 206"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -6754,10 +6754,10 @@ world
 	}
 	solid
 	{
-		"id" "6717"
+		"id" "6843"
 		side
 		{
-			"id" "3906"
+			"id" "3870"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6768,7 +6768,7 @@ world
 		}
 		side
 		{
-			"id" "3905"
+			"id" "3869"
 			"plane" "(0 1024 512) (1024 1024 512) (1024 0 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6779,7 +6779,7 @@ world
 		}
 		side
 		{
-			"id" "3904"
+			"id" "3868"
 			"plane" "(0 0 0) (1024 0 0) (1024 1024 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6790,7 +6790,7 @@ world
 		}
 		side
 		{
-			"id" "3903"
+			"id" "3867"
 			"plane" "(0 1024 512) (0 0 512) (0 0 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -6801,7 +6801,7 @@ world
 		}
 		side
 		{
-			"id" "3902"
+			"id" "3866"
 			"plane" "(1024 1024 0) (1024 0 0) (1024 0 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -6812,7 +6812,7 @@ world
 		}
 		side
 		{
-			"id" "3901"
+			"id" "3865"
 			"plane" "(0 0 512) (0 0 0) (1024 0 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -6823,7 +6823,7 @@ world
 		}
 		editor
 		{
-			"color" "0 195 132"
+			"color" "0 221 206"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -6888,7 +6888,7 @@ entity
 	"id" "42"
 	"classname" "func_portaldoor"
 	"connectiontype" "512"
-	"mustconnect" "1"
+	"mustconnect" "0"
 	solid
 	{
 		"id" "43"
@@ -6985,6 +6985,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/light_spotlight02_lamp.mdl"
@@ -7114,7 +7116,7 @@ entity
 	"id" "803"
 	"classname" "func_portaldoor"
 	"connectiontype" "512"
-	"mustconnect" "1"
+	"mustconnect" "0"
 	solid
 	{
 		"id" "804"
@@ -7211,6 +7213,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/light_spotlight02_lamp.mdl"
@@ -7340,7 +7344,7 @@ entity
 	"id" "1523"
 	"classname" "func_portaldoor"
 	"connectiontype" "512"
-	"mustconnect" "1"
+	"mustconnect" "0"
 	solid
 	{
 		"id" "1524"
@@ -7437,6 +7441,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/light_spotlight02_lamp.mdl"
@@ -17384,6 +17390,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -17411,6 +17419,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -17438,6 +17448,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -17465,6 +17477,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -17492,6 +17506,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -17519,6 +17535,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -17546,6 +17564,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -17573,6 +17593,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -17600,6 +17622,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -17627,6 +17651,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence003b.mdl"
@@ -17654,6 +17680,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence001g.mdl"
@@ -17691,6 +17719,7 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "9999"
 	"model" "models/props_wasteland/prison_padlock001a.mdl"
+	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -17723,6 +17752,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence003e.mdl"
@@ -17750,6 +17781,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence003b.mdl"
@@ -17787,6 +17820,7 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_junk/vent001.mdl"
+	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -17819,6 +17853,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_train/de_train_signalbox_01.mdl"
@@ -17856,6 +17892,7 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_wasteland/controlroom_chair001a.mdl"
+	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -18290,6 +18327,7 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_c17/oildrum001.mdl"
+	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -18332,6 +18370,7 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_c17/oildrum001.mdl"
+	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -18374,6 +18413,7 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_c17/oildrum001.mdl"
+	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -18416,6 +18456,7 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_junk/garbage_glassbottle001a.mdl"
+	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -18458,6 +18499,7 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_junk/garbage_glassbottle001a.mdl"
+	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -18500,6 +18542,7 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_junk/garbage_glassbottle001a.mdl"
+	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -18542,6 +18585,7 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_junk/garbage_glassbottle001a.mdl"
+	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -18584,6 +18628,7 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_junk/garbage_glassbottle002a.mdl"
+	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -18616,6 +18661,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/prison_flourescentlight002b.mdl"
@@ -18643,6 +18690,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/prison_flourescentlight002b.mdl"
@@ -18670,6 +18719,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_train/de_train_signalbox_01.mdl"
@@ -18697,6 +18748,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_train/de_train_signalbox_01.mdl"

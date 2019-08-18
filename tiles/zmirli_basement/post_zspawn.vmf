@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8261"
-	"mapversion" "17"
+	"editorbuild" "8163"
+	"mapversion" "19"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "17"
+	"mapversion" "19"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -5431,7 +5431,7 @@ world
 	}
 	solid
 	{
-		"id" "5348"
+		"id" "5419"
 		side
 		{
 			"id" "1518"
@@ -5500,7 +5500,7 @@ world
 		}
 		editor
 		{
-			"color" "0 212 205"
+			"color" "0 117 110"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -5508,7 +5508,7 @@ world
 	}
 	solid
 	{
-		"id" "5350"
+		"id" "5421"
 		side
 		{
 			"id" "1524"
@@ -5577,7 +5577,7 @@ world
 		}
 		editor
 		{
-			"color" "0 212 205"
+			"color" "0 117 110"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -5585,7 +5585,7 @@ world
 	}
 	solid
 	{
-		"id" "5352"
+		"id" "5423"
 		side
 		{
 			"id" "1530"
@@ -5654,7 +5654,7 @@ world
 		}
 		editor
 		{
-			"color" "0 212 205"
+			"color" "0 117 110"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -5662,7 +5662,7 @@ world
 	}
 	solid
 	{
-		"id" "5354"
+		"id" "5425"
 		side
 		{
 			"id" "1536"
@@ -5731,7 +5731,7 @@ world
 		}
 		editor
 		{
-			"color" "0 212 205"
+			"color" "0 117 110"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -5739,7 +5739,7 @@ world
 	}
 	solid
 	{
-		"id" "5356"
+		"id" "5427"
 		side
 		{
 			"id" "1542"
@@ -5808,7 +5808,7 @@ world
 		}
 		editor
 		{
-			"color" "0 212 205"
+			"color" "0 117 110"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -5816,7 +5816,7 @@ world
 	}
 	solid
 	{
-		"id" "5358"
+		"id" "5429"
 		side
 		{
 			"id" "1548"
@@ -5885,7 +5885,7 @@ world
 		}
 		editor
 		{
-			"color" "0 212 205"
+			"color" "0 117 110"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -5904,6 +5904,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_cagelight02_off.mdl"
@@ -5931,6 +5933,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_cagelight02_off.mdl"
@@ -5958,6 +5962,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/valve003.mdl"
@@ -5985,6 +5991,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/valve003.mdl"
@@ -6012,6 +6020,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_lcurve01_long.mdl"
@@ -6039,6 +6049,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_lcurve01_long.mdl"
@@ -6066,6 +6078,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -6093,6 +6107,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -6120,6 +6136,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -6147,6 +6165,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -6174,6 +6194,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -6201,6 +6223,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_lcurve01_long.mdl"
@@ -6228,6 +6252,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/valve003.mdl"
@@ -6255,6 +6281,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -6290,6 +6318,7 @@ entity
 	"MinAnimTime" "5"
 	"mindxlevel" "0"
 	"model" "models/props_lab/freightelevator.mdl"
+	"modelscale" "1.0"
 	"PerformanceMode" "0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
@@ -6322,6 +6351,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_lab/freightelevatorbutton.mdl"
@@ -6357,6 +6388,7 @@ entity
 	"MinAnimTime" "5"
 	"mindxlevel" "0"
 	"model" "models/props_lab/elevatordoor.mdl"
+	"modelscale" "1.0"
 	"PerformanceMode" "0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
@@ -6383,7 +6415,7 @@ entity
 	"id" "4274"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
+	"mustconnect" "0"
 	"nohint" "0"
 	solid
 	{
@@ -6481,6 +6513,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_nuke/crate_large.mdl"

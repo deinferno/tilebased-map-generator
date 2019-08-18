@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8261"
-	"mapversion" "6"
+	"editorbuild" "8163"
+	"mapversion" "8"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "6"
+	"mapversion" "8"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -4512,7 +4512,7 @@ world
 	}
 	solid
 	{
-		"id" "5558"
+		"id" "5615"
 		side
 		{
 			"id" "3846"
@@ -4581,7 +4581,7 @@ world
 		}
 		editor
 		{
-			"color" "0 182 163"
+			"color" "0 247 192"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4589,7 +4589,7 @@ world
 	}
 	solid
 	{
-		"id" "5560"
+		"id" "5617"
 		side
 		{
 			"id" "3852"
@@ -4658,7 +4658,7 @@ world
 		}
 		editor
 		{
-			"color" "0 182 163"
+			"color" "0 247 192"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4666,7 +4666,7 @@ world
 	}
 	solid
 	{
-		"id" "5562"
+		"id" "5619"
 		side
 		{
 			"id" "3858"
@@ -4735,7 +4735,7 @@ world
 		}
 		editor
 		{
-			"color" "0 182 163"
+			"color" "0 247 192"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4743,7 +4743,7 @@ world
 	}
 	solid
 	{
-		"id" "5564"
+		"id" "5621"
 		side
 		{
 			"id" "3864"
@@ -4812,7 +4812,7 @@ world
 		}
 		editor
 		{
-			"color" "0 182 163"
+			"color" "0 247 192"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4820,7 +4820,7 @@ world
 	}
 	solid
 	{
-		"id" "5566"
+		"id" "5623"
 		side
 		{
 			"id" "3870"
@@ -4889,7 +4889,7 @@ world
 		}
 		editor
 		{
-			"color" "0 182 163"
+			"color" "0 247 192"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4897,7 +4897,7 @@ world
 	}
 	solid
 	{
-		"id" "5568"
+		"id" "5625"
 		side
 		{
 			"id" "3876"
@@ -4966,7 +4966,7 @@ world
 		}
 		editor
 		{
-			"color" "0 182 163"
+			"color" "0 247 192"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -5031,7 +5031,7 @@ entity
 	"id" "42"
 	"classname" "func_portaldoor"
 	"connectiontype" "512"
-	"mustconnect" "1"
+	"mustconnect" "0"
 	solid
 	{
 		"id" "43"
@@ -5128,6 +5128,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/light_spotlight02_lamp.mdl"
@@ -5257,7 +5259,7 @@ entity
 	"id" "1523"
 	"classname" "func_portaldoor"
 	"connectiontype" "512"
-	"mustconnect" "1"
+	"mustconnect" "0"
 	solid
 	{
 		"id" "1524"
@@ -5354,6 +5356,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/light_spotlight02_lamp.mdl"
@@ -11701,6 +11705,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -11728,6 +11734,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -11755,6 +11763,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -11782,6 +11792,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -11809,6 +11821,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
@@ -11836,6 +11850,8 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightmapresolutionx" "32"
+	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_c17/light_decklight01_off.mdl"
