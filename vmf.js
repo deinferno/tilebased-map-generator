@@ -15,6 +15,7 @@
 	const TILESIZE_ZMUL = 4
 	//const DOOR_MIN_SIZE = 16
 	const TILESIZE_VEC = new hlib.Vector(TILESIZE,TILESIZE,TILESIZE_Z)
+	const MAX_MATERIAL_SIZE = 9999
 
 	//const OUTSIDE_MATERIAL = 'MATSYS_REGRESSIONTEST/BACKGROUND'
 
@@ -22,6 +23,9 @@
 	const AREAPORTAL_MATERIAL = "TOOLS/TOOLSHINT"
 
 	const snames = ['TOP','NORTH','WEST','EAST','SOUTH','BOTTOM']
+
+	const angles = [180, 90, -90];
+	const alength = 3
 
 	var VMFUVMap = function(uvmap){
 		var uv = uvmap.match(/([^ \[\]]+)/g)
@@ -52,8 +56,8 @@
 			times = Number(times[1]);
 		}
 
-		var maproot = new VMFMap(filename)
-		var currentobj = maproot 
+		var tile = new VMFMap(filename)
+		var currentobj = tile 
 		var prevline
 		var parents = []
 
@@ -90,29 +94,29 @@
     		prevline = lines[i].trim()
 		}
 
-		var cordmin = maproot.cordonBounds()[0]
+		var cordmin = tile.cordonBounds()[0]
 
 		if (cordmin.x != 0 || cordmin.y != 0 || cordmin.y != 0 ){
 			log('WARNING: Cordons mins are not 0')
 		}
 
-		var cordmax = maproot.cordonBounds()[1]
+		var cordmax = tile.cordonBounds()[1]
 
 		var cordonsize = cordmin.abs().add(cordmax)
 
-		/*if (cordonsize.x % TILESIZE != 0 || cordonsize.y % TILESIZE != 0 || cordonsize.z % TILESIZE_Z != 0){
+		if (cordonsize.x % TILESIZE != 0 || cordonsize.y % TILESIZE != 0 || cordonsize.z % TILESIZE_Z != 0){
 			log(cordonsize)
 			log('Closest to tile size multiply')
 			log(Math.floor(cordonsize.x/TILESIZE)*TILESIZE,Math.floor(cordonsize.y/TILESIZE)*TILESIZE,Math.floor(cordonsize.z/TILESIZE_Z)*TILESIZE_Z)
 			log(Math.ceil(cordonsize.x/TILESIZE)*TILESIZE,Math.ceil(cordonsize.y/TILESIZE)*TILESIZE,Math.ceil(cordonsize.z/TILESIZE_Z)*TILESIZE_Z)
 			log('WARNING:Map doesn\'t have cordons that are multiple of '+TILESIZE+' or z isn\'t '+TILESIZE_Z);
-		}*/
+		}
 
-		maproot.recursiveTranslate(maproot.cordonBounds()[0].multiply(-1))
-		maproot.translateBounds(maproot.cordonBounds()[0].multiply(-1))
-		maproot.removeCordonBrushes()
+		tile.recursiveTranslate(tile.cordonBounds()[0].multiply(-1))
+		tile.translateBounds(tile.cordonBounds()[0].multiply(-1))
+		tile.removeCordonBrushes()
 
-		var sm = maproot.sidematrixes()
+		var sm = tile.sidematrixes()
 
 		log(' *Sides ')
 
@@ -120,11 +124,10 @@
 
 		for (let i=0;i<=5;i++){
 			if (sm[i].length>0){
-				/*for (let tile of sm[i]) {
-					if (tile[0]){
-						var tile[0]
-					}
-				}	*/
+				for (let tile of sm[i]) {
+					let holecenter = [tile[0][0]+(tile[1][0] - tile[0][0])*0.5,tile[0][1]+(tile[1][1] - tile[0][1])*0.5]
+					if (holecenter[0]!=Math.floor(holecenter[0])){log("Warning: portaldoor isn't aligned to tile")}
+				}
 			log('  '+sm[i].length+' portal(s) at '+snames[i]+' side')
 			exist = true
 			}
@@ -132,7 +135,27 @@
 
 		if (!exist){throw new Error('Map don\'t contain any connectable sides');}
 
-		return {maproot:maproot,times:times}
+		var bounds = tile.cordonBounds();
+		var size = bounds[1].subtract(bounds[0]);
+		var center = bounds[0].add(size.multiply(0.5));
+
+		var tiles = []
+
+		tiles[3]=tile
+
+		for (let akey = 0; akey < alength; akey++) {
+			let tangle = angles[akey];
+			let ctile = tile.deepcopy();
+			ctile.recursiveRotate(tangle, center);
+			ctile.rotateBounds(tangle,center);
+			ctile.recursiveTranslate(ctile.cordonBounds()[0].multiply(-1))
+			ctile.translateBounds(ctile.cordonBounds()[0].multiply(-1))
+			delete ctile.connectablesides_cache;
+			delete ctile.sidematrixes_cache;
+			tiles[akey]=ctile
+		}
+
+		return {tiles:tiles,times:times}
 	}
 
 	class VMFObject {
@@ -189,13 +212,16 @@
 		}
 
 		recursiveTranslate(vec){
-			if (this.sidematrixes_cache){delete this.sidematrixes_cache}
 
 			var origin = this.origin
 			var plane = this.planes
+			var uvmap = this.UVMap
 
 			if (origin){this.prop.origin = origin.add(vec).toString()}
 			if (plane&&Math.abs(plane[0].x)!=16376){this.prop.plane = plane[0].add(vec).toString()+' '+plane[1].add(vec).toString()+' '+plane[2].add(vec).toString()}
+			if (uvmap){
+				this.translateuvmap(vec);
+			}
 
 			for (let key1 in this.children) {
 				if (!Array.isArray(this.children[key1])){this.children[key1].recursiveTranslate(vec);continue}
@@ -207,23 +233,97 @@
 		}
 
 		recursiveRotate(angle,center){
-			if (this.sidematrixes_cache){delete this.sidematrixes_cache}
-
 			var origin = this.origin
 			var angles = this.angles
-			var plane = this.planes
+			var planes = this.planes
 			var uvmap = this.UVMap
 
 			if (origin){this.prop.origin = origin.subtract(center).rotateZ(angle).add(center).toString()}
 			if (angles){angles.y+=angle;this.prop.angles = angles.toString()}
-			if (plane){this.prop.plane = plane[0].subtract(center).rotateZ(angle).add(center).toString()+' '+plane[1].subtract(center).rotateZ(angle).add(center).toString()+' '+plane[2].subtract(center).rotateZ(angle).add(center).toString()}
+			if (planes){this.prop.plane = planes[0].subtract(center).rotateZ(angle).add(center).toString()+' '+planes[1].subtract(center).rotateZ(angle).add(center).toString()+' '+planes[2].subtract(center).rotateZ(angle).add(center).toString()}
 			if (uvmap){
+
+				var newplanes = this.planes;
+
+				var nmin=new hlib.Vector(Number.MAX_SAFE_INTEGER,Number.MAX_SAFE_INTEGER,Number.MAX_SAFE_INTEGER)
+				var nmax=new hlib.Vector(Number.MIN_SAFE_INTEGER,Number.MIN_SAFE_INTEGER,Number.MIN_SAFE_INTEGER)
+				for (let plane in newplanes){
+					nmin.x=Math.min(nmin.x,newplanes[plane].x)
+					nmin.y=Math.min(nmin.y,newplanes[plane].y)
+					nmin.z=Math.min(nmin.z,newplanes[plane].z)
+					nmax.x=Math.max(nmax.x,newplanes[plane].x)
+					nmax.y=Math.max(nmax.y,newplanes[plane].y)
+					nmax.z=Math.max(nmax.z,newplanes[plane].z)
+				}
+
+				var npcenter = nmin.add(nmax.subtract(nmin).divide(2));
+
+				//TRANSLATE uvmap to new plane center tomorrow
+
+				//this.prop.rotation = (parseFloat(this.prop.rotation)||0)+angle;
+
+				var min=new hlib.Vector(Number.MAX_SAFE_INTEGER,Number.MAX_SAFE_INTEGER,Number.MAX_SAFE_INTEGER)
+				var max=new hlib.Vector(Number.MIN_SAFE_INTEGER,Number.MIN_SAFE_INTEGER,Number.MIN_SAFE_INTEGER)
+				for (let plane in planes){
+					min.x=Math.min(min.x,planes[plane].x)
+					min.y=Math.min(min.y,planes[plane].y)
+					min.z=Math.min(min.z,planes[plane].z)
+					max.x=Math.max(max.x,planes[plane].x)
+					max.y=Math.max(max.y,planes[plane].y)
+					max.z=Math.max(max.z,planes[plane].z)
+				}
+
+				var pcenter = min.add(max.subtract(min).divide(2));
 
 				var uaxis = uvmap[0].rotateZ(angle)
 				var vaxis = uvmap[1].rotateZ(angle)
 
+				//Plane is actually changing uv on rotation dimming my results YOUSLESS
+
+				//var shift = new hlib.Vector(uvmap[0].shift,uvmap[1].shift,0)
+				//shift.rotateZ(angle)
+				//uaxis.shift = shift.x
+				//vaxis.shift = shift.y
+
+
+				/*
+
+				//pcenter.rotateZ(angle).divide(scale);
+
+				//U - 20 > -394 
+				//V - -123 > -477
+				//U - 0 > - 414 < 354
+				//V - 0 > - 354 < -414
+				//U - 10
+				//V - 10
+
+				if (uvmap[0].z==0&&uvmap[1].z==0){ // TOP OR BOTTOM
+					//pcenter.x *= - 1
+					var vec = pcenter.rotateZ(angle).subtract(pcenter);
+					uaxis.shift = uaxis.shift - (vec.x/uaxis.scale)%MAX_MATERIAL_SIZE
+					vaxis.shift = vaxis.shift + (vec.y/vaxis.scale)%MAX_MATERIAL_SIZE
+					//if (this.prop.material=="MATSYS_REGRESSIONTEST/BACKGROUND"){console.log(uaxis,vaxis);
+					//	}//throw new Error('LOLRLY?');}
+					//var vec = veco.rotateZ(-parseFloat(this.prop.rotation))
+					//uvmap[0].shift = uvmap[0].shift - (vec.x / uvmap[0].scale)%MAX_MATERIAL_SIZE
+					//uvmap[1].shift = uvmap[1].shift + (vec.y / uvmap[1].scale)%MAX_MATERIAL_SIZE
+				} else if (uvmap[0].x == 0 && uvmap[1].x == 0) {  // RIGHT LEFT
+					//var vec = new hlib.Vector(uaxis.shift,vaxis.shift,0).rotateZ(pcenter)
+					//uvmap[0].shift = uvmap[0].shift - (vec.y / uvmap[0].scale)%MAX_MATERIAL_SIZE
+					//uvmap[1].shift = uvmap[1].shift + (vec.z / uvmap[1].scale)%MAX_MATERIAL_SIZE
+				} else if (uvmap[0].y == 0 && uvmap[1].y == 0) { // NORTH SOUTH
+					//var vec = veco.rotateY(-parseFloat(this.prop.rotation))
+					//uvmap[0].shift = uvmap[0].shift - (vec.x / uvmap[0].scale)%MAX_MATERIAL_SIZE 
+					//uvmap[1].shift = uvmap[1].shift + (vec.z / uvmap[1].scale)%MAX_MATERIAL_SIZE
+				}
+
+				*/
+
 				this.prop.uaxis = uaxis.toString()
 				this.prop.vaxis = vaxis.toString()
+
+				//this.translateuvmap(npcenter.subtract(pcenter));
+				//if (this.prop.material=="MATSYS_REGRESSIONTEST/BACKGROUND"){console.log(pcenter,npcenter)}
 			}
 
 			for (let key1 in this.children) {
@@ -236,7 +336,6 @@
 		}
 
 		translateBounds(offset){
-			if (this.sidematrixes_cache){delete this.sidematrixes_cache}
 
 			var mins = this.cordonMins.add(offset)
 			var maxs = this.cordonMaxs.add(offset)
@@ -246,7 +345,6 @@
 		}
 
 		rotateBounds(angle,center){
-			if (this.sidematrixes_cache){delete this.sidematrixes_cache}
 
 			var mins = this.cordonMins.subtract(center).rotateZ(angle).add(center)
 			var maxs = this.cordonMaxs.subtract(center).rotateZ(angle).add(center)
@@ -315,7 +413,6 @@
 		}
 
 		merge(obj){
-			if (this.sidematrixes_cache){delete this.sidematrixes_cache}
 			for (let key1 in obj.world.children) {
 				if (!Array.isArray(obj.world.children[key1])){this.world.addChild(obj.world.children[key1]);continue}
 				for (let key2 in obj.world.children[key1]) {
@@ -333,8 +430,31 @@
 
 		}
 
+		localizeTargetnames(postfix){
+			var children = this.findChildren()
+			var targetnames = [];
+
+			for (let child in children){
+				if(children[child].prop&&children[child].prop.targetname&&!children[child].prop.targetname.startsWith("global_")){targetnames[targetnames.length]=children[child].prop.targetname}
+			}
+
+			for (let child in children){
+				if(children[child].prop){
+					for (var index in children[child].prop){
+						if (typeof children[child].prop[index] === "string"){
+							for (var targetname of targetnames){
+								var replaced = children[child].prop[index].replace(targetname,targetname+postfix)
+								if (replaced!==children[child].prop[index]){console.log("Replaced "+targetname+" with "+targetname+postfix)}
+								children[child].prop[index] = replaced
+							}
+						}
+					}
+				}
+			}
+
+		}
+
 		removeCordonBrushes(){
-			if (this.sidematrixes_cache){delete this.sidematrixes_cache}
 			for (let key1 in (this.world.children.solid.type == 'solid' ? [this.world.children.solid] : this.world.children.solid)) {
 				let solid = (this.world.children.solid[key1] || this.world.children.solid)
 				if (solid.children.editor.prop.cordonsolid=="1"){
@@ -358,11 +478,12 @@
 		}
 
 		addToID(add) {
-			if (this.sidematrixes_cache){delete this.sidematrixes_cache}
 			var children = this.findChildren()
 			for (let child in children){
 				if(children[child].prop&&children[child].prop.id){children[child].prop.id=parseInt(children[child].prop.id)+add}
 				if(children[child].prop&&children[child].prop.groupid){children[child].prop.groupid=parseInt(children[child].prop.groupid)+add}
+				if(children[child].prop&&children[child].prop.sides){children[child].prop.sides=parseInt(children[child].prop.sides)+add}  // Info_overlay fix
+				if(children[child].prop&&children[child].prop.sides2){children[child].prop.sides2=parseInt(children[child].prop.sides2)+add}  // Info_overlay fix
 			}
 		}
 
@@ -376,34 +497,66 @@
 				let name = evisgroup.prop.name
 				if (name==visgroup){
 					visgroupid=evisgroup.prop.visgroupid
-					log("Unhiding visgroup "+name)
+					log("Enabling visgroup "+name)
+					break
 				}
 			}
 
-			if (this.world.children.hidden){
-				for (let hidden of (this.world.children.hidden.type == 'hidden' ? [this.world.children.hidden] : this.world.children.hidden)){
-					let solid = hidden.children.solid
-					if (solid.children.editor.prop.visgroupid==visgroupid){
-						solid.children.editor.prop.visgroupshown = '1'
-						this.children.world.children.solid.push(solid)
+			if (visgroupid){
+				if (this.world.children.hidden){
+					for (let hidden of (this.world.children.hidden.type == 'hidden' ? [this.world.children.hidden] : this.world.children.hidden)){
+						let solid = hidden.children.solid
+						if (solid.children.editor.prop.visgroupid==visgroupid){
+							solid.children.editor.prop.visgroupshown = '1'
+							this.children.world.children.solid.push(solid)
+						}
+					}
+				}
+	
+				if (this.children.hidden){
+					for (let hidden of (this.children.hidden.type == 'hidden' ? [this.children.hidden] : this.children.hidden)){
+						let entity = hidden.children.entity
+						if (entity.children.editor.prop.visgroupid==visgroupid){
+							entity.children.editor.prop.visgroupshown = '1'
+							this.entity.push(entity)
+						}
 					}
 				}
 			}
 
-			if (this.children.hidden){
-				for (let hidden of (this.children.hidden.type == 'hidden' ? [this.children.hidden] : this.children.hidden)){
-					let entity = hidden.children.entity
-					if (entity.children.editor.prop.visgroupid==visgroupid){
-						entity.children.editor.prop.visgroupshown = '1'
-						this.entity.push(entity)
+			var dvisgroup = holeid ? this.getEntityByID(holeid).prop.disablevisgroup : "";
+			var dvisgroupid;
+
+			for (let evisgroup of (this.visgroups.children.visgroup.type == 'visgroup' ? [this.visgroups.children.visgroup] : this.visgroups.children.visgroup)){
+				let name = evisgroup.prop.name
+				if (name==dvisgroup){
+					dvisgroupid=evisgroup.prop.visgroupid
+					log("Disabling visgroup "+name)
+					break
+				}
+			}
+
+			if (dvisgroupid){
+
+				for (let key1 in (this.world.children.solid.type == 'solid' ? [this.world.children.solid] : this.world.children.solid)) {
+					let solid = (this.world.children.solid[key1] || this.world.children.solid)
+					if (solid.children.editor.prop.visgroupid == dvisgroupid){
+						if (this.world.children.solid.type == 'solid'){delete this.world.children.solid} else {delete this.world.children.solid[key1]}
 					}
 				}
+	
+				for (let key1 in (this.entity.type == 'solid' ? [this.entity] : this.entity)) {
+					let entity = (this.entity[key1] || this.entity)
+					if (entity.children.editor.prop.visgroupid == dvisgroupid){
+						if (this.entity.type == 'solid'){delete this.children.entity} else {delete this.children.entity[key1]}
+					}
+				}
+
 			}
 
 		}
 
 		switchVisGroups(random){
-			if (this.sidematrixes_cache){delete this.sidematrixes_cache}
 			if (!this.visgroups.children.visgroup){return}
 
 			var variantsgroups = [];
@@ -471,35 +624,38 @@
 			}*/
 		}
 
-		connectablesides(angle,center){
+		connectablesides(){ // deep copy vs rerun i dunno what's worst for performance
+			if (this.connectablesides_cache){return this.connectablesides_cache.slice(0)}
 			var sides=[]
-			var sidematrixes = this.sidematrixes(angle,center)
+			var sidematrixes = this.sidematrixes()
 
 			for (let side in sidematrixes){
-				if (sidematrixes[side].nonempty){sides.push([side,sidematrixes[side].length])}			
+				if (sidematrixes[side].nonempty){sides[side]=sidematrixes[side].length}			
 			}
 
-			return sides
+			this.connectablesides_cache = sides
+
+			return sides.slice(0)
 		}
 
-		sidematrixes(angle,center) {
-			//if (this.sidematrixes_cache){return this.sidematrixes_cache}
-			var cbounds = center ? this.rotatedBounds(angle,center) : this.cordonBounds()
+		sidematrixes() {
+			if (this.sidematrixes_cache){return this.sidematrixes_cache}
+			var cbounds = this.cordonBounds() // center ? this.rotatedBounds(angle,center) : this.cordonBounds()
 			var size = cbounds[1].subtract(cbounds[0])
 			var matrixes=[[],[],[],[],[],[]]
 			matrixes.size = new hlib.Vector(size.x/TILESIZE,size.y/TILESIZE,size.z/TILESIZE_Z)
 
 			var portals=this.FindPortals()
 			for (let portal of portals){
-				let bounds=center ?  portal[0].rBounds(angle,center) : portal[0].bounds()
+				let bounds = portal[0].bounds() // center ?  portal[0].rBounds(angle,center) : portal[0].bounds()
 				let ccenter = bounds[0].add(bounds[1].subtract(bounds[0]).multiply(0.5));
 				let minBounds=bounds[0].subtract(cbounds[0])
 				let maxBounds=bounds[1].subtract(cbounds[0])
 				//let size = minBounds
 				//let bcenter = minBounds+
 
-				minBounds = minBounds.divide(TILESIZE_VEC)
-				maxBounds = maxBounds.divide(TILESIZE_VEC)
+				minBounds = minBounds.divide(TILESIZE_VEC).fix()
+				maxBounds = maxBounds.divide(TILESIZE_VEC).fix()
 
 
 				//if (!minBounds.equal(minBounds.floor())){throw new Error("Min bounds of "+portal[2]+" isn't valid "+minBounds)}
@@ -531,12 +687,14 @@
 					case bounds[0].z == cbounds[0].z:
 						matrixes[5].push([[minBounds.x,minBounds.y],[maxBounds.x,maxBounds.y],connectiontype,portal[2],portal[3]])
 						matrixes[5].nonempty = true
+					//default:
+						//throw new Error('Can\'t find portal\'s matrix');
 				}
 			}
 
 			this.sidematrixes_cache = matrixes
 			
-			return matrixes
+			return matrixes.slice(0)
 		}
 
 		FindPortals() {
@@ -582,9 +740,8 @@
 		}
 
 		removePortalByID(id,ignoreareaportal){
-			if (this.sidematrixes_cache){delete this.sidematrixes_cache}
 			if (this.entity.prop&&this.entity.prop.id==id){
-				if (entity.prop.nohint!="1"&&!ignoreareaportal){
+				if (entity.prop.nohint!="1"&&!ignoreareaportal&&false){
 					for (let side of this.entity.children.solid.children.side){
 						side.prop.material = AREAPORTAL_MATERIAL
 					}
@@ -599,7 +756,7 @@
 				let entity = this.entity[key]
 				if (entity.prop.id==id){
 					//entity.prop.areaportal=="1"&&
-					if (entity.prop.nohint!="1"&&!ignoreareaportal){
+					if (entity.prop.nohint!="1"&&!ignoreareaportal&&false){
 						for (let side of entity.children.solid.children.side){
 							side.prop.material = AREAPORTAL_MATERIAL
 						}
@@ -659,6 +816,28 @@
 		get planes() {
 			if (!this.prop.plane){return null}
 			return VMFPlane(this.prop.plane)
+		}
+		translateuvmap(veco){
+			var uvmap = this.UVMap
+			//var total = Math.floor(uvmap[0].x+uvmap[0].y+uvmap[0].z+uvmap[1].x+uvmap[1].y+uvmap[1].z);
+			//if (total<0){return} // FACE
+
+			if (uvmap[0].z==0&&uvmap[1].z==0){ // TOP OR BOTTOM
+				var vec = veco.rotateZ(-parseFloat(this.prop.rotation))
+				uvmap[0].shift = uvmap[0].shift - (vec.x / uvmap[0].scale)%MAX_MATERIAL_SIZE
+				uvmap[1].shift = uvmap[1].shift + (vec.y / uvmap[1].scale)%MAX_MATERIAL_SIZE
+			} else if (uvmap[0].x == 0 && uvmap[1].x == 0) {  // RIGHT LEFT
+				var vec = veco.rotateX(-parseFloat(this.prop.rotation))
+				uvmap[0].shift = uvmap[0].shift - (vec.y / uvmap[0].scale)%MAX_MATERIAL_SIZE
+				uvmap[1].shift = uvmap[1].shift + (vec.z / uvmap[1].scale)%MAX_MATERIAL_SIZE
+			} else if (uvmap[0].y == 0 && uvmap[1].y == 0) { // NORTH SOUTH
+				var vec = veco.rotateY(-parseFloat(this.prop.rotation))
+				uvmap[0].shift = uvmap[0].shift - (vec.x / uvmap[0].scale)%MAX_MATERIAL_SIZE 
+				uvmap[1].shift = uvmap[1].shift + (vec.z / uvmap[1].scale)%MAX_MATERIAL_SIZE
+			}
+
+			this.prop.uaxis = uvmap[0].toString()
+			this.prop.vaxis = uvmap[1].toString()
 		}
 		get UVMap(){
 			return [VMFUVMap(this.prop.uaxis),VMFUVMap(this.prop.vaxis)]

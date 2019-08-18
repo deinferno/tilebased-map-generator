@@ -6572,7 +6572,7 @@ entity
 	"id" "3984"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
+
 	solid
 	{
 		"id" "3985"

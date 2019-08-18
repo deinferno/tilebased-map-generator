@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8163"
-	"mapversion" "6"
+	"mapversion" "8"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "6"
+	"mapversion" "8"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1776,7 +1776,7 @@ world
 	}
 	solid
 	{
-		"id" "1200"
+		"id" "1282"
 		side
 		{
 			"id" "432"
@@ -1845,7 +1845,7 @@ world
 		}
 		editor
 		{
-			"color" "0 140 141"
+			"color" "0 241 146"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -1853,7 +1853,7 @@ world
 	}
 	solid
 	{
-		"id" "1202"
+		"id" "1284"
 		side
 		{
 			"id" "438"
@@ -1922,7 +1922,7 @@ world
 		}
 		editor
 		{
-			"color" "0 140 141"
+			"color" "0 241 146"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -1930,7 +1930,7 @@ world
 	}
 	solid
 	{
-		"id" "1204"
+		"id" "1286"
 		side
 		{
 			"id" "444"
@@ -1999,7 +1999,7 @@ world
 		}
 		editor
 		{
-			"color" "0 140 141"
+			"color" "0 241 146"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2007,7 +2007,7 @@ world
 	}
 	solid
 	{
-		"id" "1206"
+		"id" "1288"
 		side
 		{
 			"id" "450"
@@ -2076,7 +2076,7 @@ world
 		}
 		editor
 		{
-			"color" "0 140 141"
+			"color" "0 241 146"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2084,7 +2084,7 @@ world
 	}
 	solid
 	{
-		"id" "1208"
+		"id" "1290"
 		side
 		{
 			"id" "456"
@@ -2153,7 +2153,7 @@ world
 		}
 		editor
 		{
-			"color" "0 140 141"
+			"color" "0 241 146"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2161,7 +2161,7 @@ world
 	}
 	solid
 	{
-		"id" "1210"
+		"id" "1292"
 		side
 		{
 			"id" "462"
@@ -2230,7 +2230,7 @@ world
 		}
 		editor
 		{
-			"color" "0 140 141"
+			"color" "0 241 146"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -3513,7 +3513,6 @@ entity
 	"id" "1190"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
 	solid
 	{
 		"id" "1191"

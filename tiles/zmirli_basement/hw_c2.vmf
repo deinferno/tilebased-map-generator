@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8163"
-	"mapversion" "7"
+	"mapversion" "9"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "7"
+	"mapversion" "9"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2232,7 +2232,7 @@ world
 	}
 	solid
 	{
-		"id" "3235"
+		"id" "3359"
 		side
 		{
 			"id" "720"
@@ -2301,7 +2301,7 @@ world
 		}
 		editor
 		{
-			"color" "0 135 188"
+			"color" "0 183 100"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2309,7 +2309,7 @@ world
 	}
 	solid
 	{
-		"id" "3237"
+		"id" "3361"
 		side
 		{
 			"id" "726"
@@ -2378,7 +2378,7 @@ world
 		}
 		editor
 		{
-			"color" "0 135 188"
+			"color" "0 183 100"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2386,7 +2386,7 @@ world
 	}
 	solid
 	{
-		"id" "3239"
+		"id" "3363"
 		side
 		{
 			"id" "732"
@@ -2455,7 +2455,7 @@ world
 		}
 		editor
 		{
-			"color" "0 135 188"
+			"color" "0 183 100"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2463,7 +2463,7 @@ world
 	}
 	solid
 	{
-		"id" "3241"
+		"id" "3365"
 		side
 		{
 			"id" "738"
@@ -2532,7 +2532,7 @@ world
 		}
 		editor
 		{
-			"color" "0 135 188"
+			"color" "0 183 100"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2540,7 +2540,7 @@ world
 	}
 	solid
 	{
-		"id" "3243"
+		"id" "3367"
 		side
 		{
 			"id" "744"
@@ -2609,7 +2609,7 @@ world
 		}
 		editor
 		{
-			"color" "0 135 188"
+			"color" "0 183 100"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2617,7 +2617,7 @@ world
 	}
 	solid
 	{
-		"id" "3245"
+		"id" "3369"
 		side
 		{
 			"id" "750"
@@ -2686,7 +2686,7 @@ world
 		}
 		editor
 		{
-			"color" "0 135 188"
+			"color" "0 183 100"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4366,7 +4366,6 @@ entity
 	"id" "3203"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
 	solid
 	{
 		"id" "3204"
@@ -4456,7 +4455,6 @@ entity
 	"id" "3225"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
 	solid
 	{
 		"id" "3226"

@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8163"
-	"mapversion" "10"
+	"mapversion" "12"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,7 +32,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "10"
+	"mapversion" "12"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -7976,7 +7976,7 @@ world
 		side
 		{
 			"id" "1644"
-			"plane" "(364 148 -84) (-216 148 -84) (-216 276 -84)"
+			"plane" "(364 148 -84) (-216 148 -84) (-216 280 -84)"
 			"material" "ALKALINE/CLEAN_FLOORC"
 			"uaxis" "[1 0 0 -384] 0.25"
 			"vaxis" "[0 -1 0 368] 0.25"
@@ -7987,7 +7987,7 @@ world
 		side
 		{
 			"id" "1643"
-			"plane" "(-216 276 -92) (-216 276 -84) (-216 148 -84)"
+			"plane" "(-216 280 -92) (-216 280 -84) (-216 148 -84)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 -48] 0.25"
 			"vaxis" "[0 0 -1 -16] 0.25"
@@ -8009,7 +8009,7 @@ world
 		side
 		{
 			"id" "1641"
-			"plane" "(364 276 -84) (-216 276 -84) (-216 276 -92)"
+			"plane" "(364 280 -84) (-216 280 -84) (-216 280 -92)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -16] 0.25"
@@ -8020,7 +8020,7 @@ world
 		side
 		{
 			"id" "1640"
-			"plane" "(364 276 -92) (-216 276 -92) (-216 148 -92)"
+			"plane" "(364 280 -92) (-216 280 -92) (-216 148 -92)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 -1 0 48] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -8031,7 +8031,7 @@ world
 		side
 		{
 			"id" "1639"
-			"plane" "(364 148 -92) (364 148 -84) (364 276 -84)"
+			"plane" "(364 148 -92) (364 148 -84) (364 280 -84)"
 			"material" "ALKALINE/CLEAN_FLOORC"
 			"uaxis" "[0 1 0 -368] 0.25"
 			"vaxis" "[0 0 -1 -336] 0.25"
@@ -8356,7 +8356,7 @@ world
 		side
 		{
 			"id" "1674"
-			"plane" "(-216 244 84) (-216 244 76) (-216 276 76)"
+			"plane" "(-216 244 84) (-216 244 76) (-216 280 76)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 -48] 0.25"
 			"vaxis" "[0 0 -1 -16] 0.25"
@@ -8378,7 +8378,7 @@ world
 		side
 		{
 			"id" "1672"
-			"plane" "(-216 276 84) (-216 276 76) (364 276 76)"
+			"plane" "(-216 280 84) (-216 280 76) (364 280 76)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -16] 0.25"
@@ -8389,7 +8389,7 @@ world
 		side
 		{
 			"id" "1671"
-			"plane" "(364 276 76) (-216 276 76) (-216 244 76)"
+			"plane" "(364 280 76) (-216 280 76) (-216 244 76)"
 			"material" "ALKALINE/CLEAN_CEILINGA"
 			"uaxis" "[1 0 0 -160] 0.25"
 			"vaxis" "[0 -1 0 336] 0.25"
@@ -8400,7 +8400,7 @@ world
 		side
 		{
 			"id" "1670"
-			"plane" "(364 244 84) (-216 244 84) (-216 276 84)"
+			"plane" "(364 244 84) (-216 244 84) (-216 280 84)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 -48] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -8411,7 +8411,7 @@ world
 		side
 		{
 			"id" "1669"
-			"plane" "(364 276 84) (364 276 76) (364 244 76)"
+			"plane" "(364 280 84) (364 280 76) (364 244 76)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 -48] 0.25"
 			"vaxis" "[0 0 -1 -16] 0.25"

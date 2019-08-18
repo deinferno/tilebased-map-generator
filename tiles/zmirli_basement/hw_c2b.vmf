@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8163"
-	"mapversion" "8"
+	"mapversion" "10"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "8"
+	"mapversion" "10"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2232,7 +2232,7 @@ world
 	}
 	solid
 	{
-		"id" "3217"
+		"id" "3345"
 		side
 		{
 			"id" "684"
@@ -2301,7 +2301,7 @@ world
 		}
 		editor
 		{
-			"color" "0 235 212"
+			"color" "0 153 118"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2309,7 +2309,7 @@ world
 	}
 	solid
 	{
-		"id" "3219"
+		"id" "3347"
 		side
 		{
 			"id" "690"
@@ -2378,7 +2378,7 @@ world
 		}
 		editor
 		{
-			"color" "0 235 212"
+			"color" "0 153 118"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2386,7 +2386,7 @@ world
 	}
 	solid
 	{
-		"id" "3221"
+		"id" "3349"
 		side
 		{
 			"id" "696"
@@ -2455,7 +2455,7 @@ world
 		}
 		editor
 		{
-			"color" "0 235 212"
+			"color" "0 153 118"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2463,7 +2463,7 @@ world
 	}
 	solid
 	{
-		"id" "3223"
+		"id" "3351"
 		side
 		{
 			"id" "702"
@@ -2532,7 +2532,7 @@ world
 		}
 		editor
 		{
-			"color" "0 235 212"
+			"color" "0 153 118"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2540,7 +2540,7 @@ world
 	}
 	solid
 	{
-		"id" "3225"
+		"id" "3353"
 		side
 		{
 			"id" "708"
@@ -2609,7 +2609,7 @@ world
 		}
 		editor
 		{
-			"color" "0 235 212"
+			"color" "0 153 118"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2617,7 +2617,7 @@ world
 	}
 	solid
 	{
-		"id" "3227"
+		"id" "3355"
 		side
 		{
 			"id" "714"
@@ -2686,7 +2686,7 @@ world
 		}
 		editor
 		{
-			"color" "0 235 212"
+			"color" "0 153 118"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4366,7 +4366,6 @@ entity
 	"id" "3203"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
 	solid
 	{
 		"id" "3204"
@@ -4456,16 +4455,15 @@ entity
 	"id" "3207"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
 	solid
 	{
 		"id" "3208"
 		side
 		{
 			"id" "678"
-			"plane" "(8 352 176) (8 352 64) (0 352 64)"
+			"plane" "(2.86102e-006 416 176) (2.86102e-006 416 64) (8 416 64)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 32] 0.25"
+			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -4474,9 +4472,9 @@ entity
 		side
 		{
 			"id" "677"
-			"plane" "(8 416 176) (8 416 64) (8 352 64)"
+			"plane" "(-2.86102e-006 352 176) (-2.86102e-006 352 64) (2.86102e-006 416 64)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 22.9652] 0.25"
+			"uaxis" "[0 1 0 -41.0349] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -4485,9 +4483,9 @@ entity
 		side
 		{
 			"id" "676"
-			"plane" "(0 352 176) (0 352 64) (0 416 64)"
+			"plane" "(8 416 176) (8 416 64) (8 352 64)"
 			"material" "CONCRETE/CONCRETEWALL002C"
-			"uaxis" "[0 -1 0 278.965] 0.25"
+			"uaxis" "[0 1 0 -233.035] 0.25"
 			"vaxis" "[0 0 -1 256] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -4496,10 +4494,10 @@ entity
 		side
 		{
 			"id" "675"
-			"plane" "(0 416 64) (0 352 64) (8 352 64)"
+			"plane" "(8 352 64) (8 416 64) (2.86102e-006 416 64)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 22.9652] 0.25"
-			"vaxis" "[-1 0 0 -32] 0.25"
+			"uaxis" "[0 1 0 -41.0349] 0.25"
+			"vaxis" "[1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -4507,10 +4505,10 @@ entity
 		side
 		{
 			"id" "674"
-			"plane" "(0 416 176) (0 416 64) (8 416 64)"
+			"plane" "(8 352 176) (8 352 64) (-2.86102e-006 352 64)"
 			"material" "STONE/STONESTAIR001A"
 			"uaxis" "[0 0 1 0] 0.25"
-			"vaxis" "[1 0 0 96] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "90"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -4518,10 +4516,10 @@ entity
 		side
 		{
 			"id" "673"
-			"plane" "(8 416 176) (8 352 176) (0 352 176)"
+			"plane" "(2.86102e-006 416 176) (8 416 176) (8 352 176)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 22.9652] 0.25"
-			"vaxis" "[-1 0 0 -32] 0.25"
+			"uaxis" "[0 1 0 -41.0349] 0.25"
+			"vaxis" "[1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"

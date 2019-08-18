@@ -8,6 +8,7 @@
 
 	connectiontype(string) : "Connection ID" : "1" : "Sets connection id to restrict connection to other doors based on id if they have same size"
 	enablevisgroup(string) : "Vis group to enable" : "" : "Enable that visual group when func_portaldoor is used"
+	disablevisgroup(string) : "Vis group to disable" : "" : "Disable that visual group when func_portaldoor is used"
 
 	nohint(choices) : "No Hint" : 0 : "Do not turn that portaldoor into hint." =
 	[

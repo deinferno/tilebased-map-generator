@@ -3891,7 +3891,7 @@ entity
 	"id" "8749"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
+
 	solid
 	{
 		"id" "8750"
@@ -3981,7 +3981,7 @@ entity
 	"id" "8755"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
+
 	solid
 	{
 		"id" "8756"
@@ -4071,7 +4071,7 @@ entity
 	"id" "8820"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
+
 	solid
 	{
 		"id" "8821"

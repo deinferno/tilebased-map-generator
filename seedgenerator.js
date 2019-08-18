@@ -2,9 +2,7 @@
 
 	var chars = 'ABCDEFGHJKLMNPQRSTVWXYZ123467890';
 
-	function makeseed() {
-	
-	var seed = process.argv.slice(2)[0];
+	function makeseed(seed) {
 	
 	if (seed && seed.length == 8) {
 	

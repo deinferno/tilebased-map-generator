@@ -10478,7 +10478,7 @@ entity
 	"id" "3599"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
+
 	solid
 	{
 		"id" "3600"

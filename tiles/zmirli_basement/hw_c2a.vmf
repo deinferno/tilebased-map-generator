@@ -4366,7 +4366,7 @@ entity
 	"id" "3203"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
+
 	solid
 	{
 		"id" "3204"
@@ -4456,7 +4456,7 @@ entity
 	"id" "3211"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-	"mustconnect" "1"
+
 	solid
 	{
 		"id" "3212"
