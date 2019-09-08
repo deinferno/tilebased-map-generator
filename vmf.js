@@ -94,6 +94,8 @@
     		prevline = lines[i].trim()
 		}
 
+		tile.compressIDs()
+
 		var cordmin = tile.cordonBounds()[0]
 
 		if (cordmin.x != 0 || cordmin.y != 0 || cordmin.y != 0 ){
@@ -173,7 +175,13 @@
 		}
 
 		addProperty(key,value) {
-			this.prop[key]=value
+			if (this.prop[key]){
+				if (typeof this.prop[key]!=="object"){
+					var val = this.prop[key]
+					this.prop[key]=[val]
+				}
+				this.prop[key].push(value)
+			} else {this.prop[key]=value}
 		}
 
 		getCode (strin,tabsin) {
@@ -181,7 +189,13 @@
 			var tabs=(tabsin !== undefined ? tabsin : -1 )
 			str+=(this.constructor.name == 'VMFMap' ? '' : '\n' + '\t'.repeat(tabs) + this.type + '\n' + '\t'.repeat(tabs) +'{')
 			for (let key in this.prop) {
-				str+= '\n' + '\t'.repeat(tabs+1) +'\"'+key+'\" \"'+this.prop[key]+'\"'
+				if (Array.isArray(this.prop[key])){
+					for (let key1 in this.prop[key]){
+						str+= '\n' + '\t'.repeat(tabs+1) +'\"'+key+'\" \"'+this.prop[key][key1]+'\"'
+					}
+				} else {
+					str+= '\n' + '\t'.repeat(tabs+1) +'\"'+key+'\" \"'+this.prop[key]+'\"'
+				}
 			}
 
 			for (let key1 in this.children) {
@@ -443,9 +457,29 @@
 					for (var index in children[child].prop){
 						if (typeof children[child].prop[index] === "string"){
 							for (var targetname of targetnames){
-								var replaced = children[child].prop[index].replace(targetname,targetname+postfix)
-								if (replaced!==children[child].prop[index]){console.log("Replaced "+targetname+" with "+targetname+postfix)}
-								children[child].prop[index] = replaced
+								var replaced = ""
+								if (index=="targetname"&&children[child].prop[index]==targetname){
+									replaced = targetname+postfix
+								} else {
+									replaced = children[child].prop[index].replace(targetname+",",targetname+postfix+",")
+									if (replaced!==children[child].prop[index]){log("Replaced "+targetname+" with "+targetname+postfix)}
+								}
+								if (replaced.length>0)
+									children[child].prop[index] = replaced;
+							}
+						} else if (typeof children[child].prop[index] === "object"){
+							for (var key in children[child].prop[index]){
+								for (var targetname of targetnames){
+									var replaced = ""
+									if (index=="targetname"&&children[child].prop[index][key]==targetname){
+										replaced = targetname+postfix
+									} else {
+										replaced = children[child].prop[index][key].replace(targetname+",",targetname+postfix+",")
+										if (replaced!==children[child].prop[index][key]){log("Replaced "+targetname+" with "+targetname+postfix)}
+									}
+									if (replaced.length>0)
+										children[child].prop[index][key] = replaced;
+								}
 							}
 						}
 					}
@@ -477,6 +511,26 @@
 			return max
 		}
 
+		compressIDs() {
+			var id = 0
+			var specialid = []
+			var children = this.findChildren()
+			for (let child in children){
+				if(children[child].prop&&children[child].prop.sides){specialid[parseInt(children[child].prop.sides)]=0}
+				if(children[child].prop&&children[child].prop.sides2){specialid[parseInt(children[child].prop.sides2)]=0}
+			}
+			for (let child in children){
+				if(children[child].prop&&children[child].prop.id){id++;if(specialid[parseInt(children[child].prop.id)]==0){specialid[parseInt(children[child].prop.id)]=id};children[child].prop.id=id}
+				if(children[child].prop&&children[child].prop.groupid){id++;if(specialid[parseInt(children[child].prop.id)]==0){specialid[parseInt(children[child].prop.id)]=id};children[child].prop.groupid=id}
+				//if(children[child].prop&&children[child].prop.sides){id++;children[child].prop.sides=parseInt(children[child].prop.sides)+add}  // Info_overlay fix
+				//if(children[child].prop&&children[child].prop.sides2){children[child].prop.sides2=parseInt(children[child].prop.sides2)+add}  // Info_overlay fix
+			}
+			for (let child in children){
+				if(children[child].prop&&children[child].prop.sides){children[child].prop.sides=specialid[parseInt(children[child].prop.sides)]}  // Info_overlay fix
+				if(children[child].prop&&children[child].prop.sides2){children[child].prop.sides2=specialid[parseInt(children[child].prop.sides2)]}  // Info_overlay fix
+			}		
+		}
+
 		addToID(add) {
 			var children = this.findChildren()
 			for (let child in children){
@@ -485,6 +539,19 @@
 				if(children[child].prop&&children[child].prop.sides){children[child].prop.sides=parseInt(children[child].prop.sides)+add}  // Info_overlay fix
 				if(children[child].prop&&children[child].prop.sides2){children[child].prop.sides2=parseInt(children[child].prop.sides2)+add}  // Info_overlay fix
 			}
+		}
+
+		tileDebug() {
+			var info_null = new VMFEntity("entity")
+			info_null.addProperty("classname","env_cubemap")
+			info_null.addProperty("tilename",this.type)
+			var cordons = this.cordonBounds()
+			var center = cordons[0].add(cordons[1].subtract(cordons[0]).multiply(0.5))
+			info_null.addProperty("origin",center.toString());
+			info_null.addProperty("id",this.getMaximumID()+1);
+			info_null.addChild(new VMFObject("editor"));
+
+			this.entity.push(info_null);
 		}
 
 		switchDoorVisGroup(holeid){
@@ -687,8 +754,8 @@
 					case bounds[0].z == cbounds[0].z:
 						matrixes[5].push([[minBounds.x,minBounds.y],[maxBounds.x,maxBounds.y],connectiontype,portal[2],portal[3]])
 						matrixes[5].nonempty = true
-					//default:
-						//throw new Error('Can\'t find portal\'s matrix');
+					default:
+						throw new Error('Can\'t find portal\'s matrix');
 				}
 			}
 

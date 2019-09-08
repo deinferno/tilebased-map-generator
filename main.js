@@ -14,6 +14,9 @@ var argv = process.argv.slice(2)
 const TILEMAP_LIMIT = parseInt(argv[0]) || 32;
 seed = seed(argv[1])
 log('Seed is ' + seed);
+var debug = argv[2]
+log('Debug: '+debug)
+
 var random = seedrandom(seed);
 
 var rules = [];
@@ -24,16 +27,16 @@ if (fs.existsSync('tiles/rules.js')) {
 	rules.handleTilePlacement = function() {
 		return false
 	};
+	rules.customCordonBounds = [new hlib.Vector(-16376,-16376,-16376),new hlib.Vector(16376,16376,16376)]
 }
 
 const files = fs.readdirSync('tiles/').filter(function(file) {
 	return !fs.statSync('tiles/' + file).isDirectory() && file.includes('.vmf');
 });
 
-var protometatile;
-
 var tiles_o = [];
 var special_tiles_o = [];
+var metatiles = [];
 
 for (let filename of files) {
 	log('Parsing ' + filename + ' with index ' + tiles_o.length);
@@ -47,7 +50,7 @@ for (let filename of files) {
 		tiles[3].onlyOnce();
 		tiles_o.push(tiles[3]);
 	} else if (filename.startsWith('meta_')) {
-		protometatile = tiles[3];
+		metatiles = metatiles.concat(tiles);
 		log(' *META TILE*');
 	} else {
 		if (times) {
@@ -60,18 +63,7 @@ for (let filename of files) {
 	}
 }
 
-if (!protometatile) {
-	protometatile = Math.round(random() * (tiles_o.length - 1));
-	for (let key in tiles_o) {
-		if (key == protometatile) {
-			protometatile = tiles_o[key];
-			log('Meta tile is ' + tiles_o[key].type);
-			break;
-		}
-	}
-}
-
-if (!protometatile&&tiles_o.length==0&&special_tiles_o.length==0){
+if (tiles_o.length==0&&special_tiles_o.length==0){
 	throw new Error("Well you didn't place any tiles into tiles folder what do you expect after that?")
 }
 
@@ -138,6 +130,11 @@ function addToCordonTable(cordon) {
 }
 
 function checkCordonCollision(cordon) {
+	var ocordon = rules.customCordonBounds
+	if ((cordon[0].x > ocordon[1].x || cordon[1].x < ocordon[0].x) || (cordon[0].y > ocordon[1].y || cordon[1].y < ocordon[0].y) || (cordon[0].z > ocordon[1].z || cordon[1].z < ocordon[0].z)){
+		return true
+	}
+
 	for (let i = 0; i < cordons.length; i++)
 		if ((cordon[0].x < cordons[i][1].x && cordon[1].x > cordons[i][0].x) && (cordon[0].y < cordons[i][1].y && cordon[1].y > cordons[i][0].y) && (cordon[0].z < cordons[i][1].z && cordon[1].z > cordons[i][0].z)) {
 			return true
@@ -155,7 +152,7 @@ var tileweb;
 var curmaxid = 0
 
 
-function tryAddTiles(tileset, prevtile, sides, angle, center, cbounds, index) {
+function tryAddTiles(tileset, prevtile, sides, center, cbounds, index) {
 
 	var sidematrixes = prevtile.sidematrixes()
 	var tskeys = arrayKeys(tileset);
@@ -244,7 +241,7 @@ function tryAddTiles(tileset, prevtile, sides, angle, center, cbounds, index) {
 					//	delete tileweb[index][1][skey];
 					//}
 
-					tileweb.push([tile, tsides, 0, tcenter, ctbounds, offset, tile.connectablesides()]);
+					tileweb.push([tile, tsides, tcenter, ctbounds, offset, tile.connectablesides()]);
 
 					return true
 				}
@@ -259,7 +256,7 @@ function loopDoors() {
 	toremove = [];
 	for (var tkey in tileweb) {
 		var tdata = tileweb[tkey]
-		var sides = tdata[6];
+		var sides = tdata[5];
 		var sidematrixes = tdata[0].sidematrixes()
 
 		let skeys = arrayNumbersKeys(sides);
@@ -278,7 +275,7 @@ function loopDoors() {
 			for (let mkey = 0; mkey < mkeyslen; mkey++) {
 				let hole = matrix[mkeys[mkey]];
 				let holesize = [hole[1][0] - hole[0][0], hole[1][1] - hole[0][1]];
-				let holepos = planeToVector(side, tdata[4], [hole[0][0] + (holesize[0] / 2), hole[0][1] + (holesize[1] / 2)]);
+				let holepos = planeToVector(side, tdata[3], [hole[0][0] + (holesize[0] / 2), hole[0][1] + (holesize[1] / 2)]);
 
 
 				for (var otkey in tileweb) {
@@ -286,7 +283,7 @@ function loopDoors() {
 						continue;
 					}
 					var otdata = tileweb[otkey];
-					var osides = otdata[6];
+					var osides = otdata[5];
 					var osidematrixes = otdata[0].sidematrixes()
 
 					let oskeys = arrayNumbersKeys(osides);
@@ -308,13 +305,13 @@ function loopDoors() {
 							//}
 							let ohole = omatrix[omkeys[omkey]];
 							let oholesize = [ohole[1][0] - ohole[0][0], ohole[1][1] - ohole[0][1]];
-							let oholepos = planeToVector(oside, otdata[4], [ohole[0][0] + (oholesize[0] / 2), ohole[0][1] + (oholesize[1] / 2)]);
+							let oholepos = planeToVector(oside, otdata[3], [ohole[0][0] + (oholesize[0] / 2), ohole[0][1] + (oholesize[1] / 2)]);
 
 							if (!hole[2].some(r => ohole[2].includes(r)) || holesize[0] != oholesize[0] || holesize[1] != oholesize[1]) {
 								continue
 							}
 
-							if (holepos.distance(oholepos) > 32) {
+							if (holepos.distance(oholepos) > 1) {
 								continue
 							}
 
@@ -353,7 +350,7 @@ function removeTiles() { // Recursively removes tiles that doesn't obey restrict
 		succ = false;
 		for (var tkey in tileweb) {
 			var tdata = tileweb[tkey]
-			var sides = tdata[6];
+			var sides = tdata[5];
 			var sideslen = sides.length;
 			if (sideslen > 0) {
 				var sidematrixes = tdata[0].sidematrixes()
@@ -376,7 +373,7 @@ function removeTiles() { // Recursively removes tiles that doesn't obey restrict
 							log("Unsatisfied connection deleting tile " + tkey + " " + tdata[0].type)
 							succ = true;
 							delete tileweb[tkey]
-							for (let key in toremove[tkey]){let data=toremove[tkey][key];delete toremove[data[3]][data[4]];tileweb[data[3]][6][data[2]]++}
+							for (let key in toremove[tkey]){let data=toremove[tkey][key];delete toremove[data[3]][data[4]];tileweb[data[3]][5][data[2]]++}
 							delete toremove[tkey]
 						}
 					}
@@ -388,17 +385,34 @@ function removeTiles() { // Recursively removes tiles that doesn't obey restrict
 
 var tiles;
 var special_tiles;
+var second_tryhard = 0;
 
-function retry() {
+while (true){
 	tiles = tiles_o.slice(0);
 	special_tiles = special_tiles_o.slice(0);
 
 	tileweb = [];
 	cordons = [];
 
+	var protometatile;
+
+	if (metatiles.length != 0 ){
+		protometatile = metatiles[Math.round(random() * (metatiles.length - 1))];
+		log('Meta tile is ' + protometatile.type);
+	} else {
+		protometatile = Math.round(random() * (tiles_o.length - 1));
+		for (let key in tiles_o) {
+			if (key == protometatile) {
+				protometatile = tiles_o[key];
+				log('Meta tile is ' + tiles_o[key].type);
+				break;
+			}
+		}
+	}
+
 	metatile = protometatile.deepcopy();
 	addToCordonTable(metatile.cordonBounds());
-	tileweb.push([metatile, metatile.connectablesides(), null, null, metatile.cordonBounds(), null, metatile.connectablesides()]);
+	tileweb.push([metatile, metatile.connectablesides(), null, metatile.cordonBounds(), null, metatile.connectablesides()]);
 
 	var cbounds = metatile.cordonBounds();
 	var center = cbounds[0].add(cbounds[1].subtract(cbounds[0]).multiply(0.5));
@@ -417,7 +431,7 @@ function retry() {
 
 		for (let twkeykey = 0; twkeykey < tileweb.length; twkeykey++) {
 			let twkey = twkeys[twkeykey];
-			if (tryAddTiles(tiles, tileweb[twkey][0], tileweb[twkey][1], tileweb[twkey][2], tileweb[twkey][3], tileweb[twkey][4], twkey)) {
+			if (tryAddTiles(tiles, tileweb[twkey][0], tileweb[twkey][1], tileweb[twkey][2], tileweb[twkey][3], twkey)) {
 				succ = true;
 				break
 			}
@@ -426,9 +440,10 @@ function retry() {
 
 	if (tilemap_num < TILEMAP_LIMIT && tiles.length > 0) {
 		log('First stage failed. Retrying...');
-		retry();
-		return
+		continue
 	}
+
+	var succ = true;
 
 	while (succ) {
 		if (special_tiles.length == 0) {
@@ -440,18 +455,23 @@ function retry() {
 
 		for (let twkeykey = 0; twkeykey < tileweb.length; twkeykey++) {
 			let twkey = twkeys[twkeykey];
-			if (tryAddTiles(special_tiles, tileweb[twkey][0], tileweb[twkey][1], tileweb[twkey][2], tileweb[twkey][3], tileweb[twkey][4], twkey)) {
+			if (tryAddTiles(special_tiles, tileweb[twkey][0], tileweb[twkey][1], tileweb[twkey][2], tileweb[twkey][3], twkey)) {
 				succ = true;
 				break
 			}
 		}
 	}
 
-	if (special_tiles.length > 0) {
-		log('WARNING:Second stage failed. You may need to add post_ tiles yourself');
+	
+	if (special_tiles.length > 0&&second_tryhard<2) {
+		//second_tryhard++;
+		log('Second stage failed. Retrying in 1 second');
+		//setTimeout(function() {
 		//retry();
-		//return
-	}
+		//}, 50);
+		continue
+	} else if (second_tryhard>=2){log('WARNING:Second stage failed 2 times. You may need to add post_ tiles yourself');}
+	
 
 	loopDoors();
 	removeTiles();
@@ -473,20 +493,24 @@ function retry() {
 			ctile.removePortalByID(data[0], data[1]);
 			}
 		}
+		if (debug){ctile.tileDebug()}
 		if (key == 0) {
 			ctile.switchVisGroups(random);
 			continue
 		}
-		ctile.addToID(metatile.getMaximumID());
+		//console.log("Ctile "+ctile.getMaximumID()+" MTile "+metatile.getMaximumID())
+		metatile.addToID(ctile.getMaximumID())
 		ctile.switchVisGroups(random);
 		ctile.localizeTargetnames(key);
-		ctile.recursiveTranslate(data[5]);
+		ctile.recursiveTranslate(data[4]);
 		metatile.merge(ctile);
 	}
 
+	finalize()
+	break
 }
 
-retry()
+function finalize(){
 
 metatile.removeCordon()
 metatile.unEntityPortals()
@@ -494,3 +518,5 @@ metatile.unEntityPortals()
 log("Writing to file")
 
 fs.writeFileSync('combined.vmf', metatile.getCode())
+
+}

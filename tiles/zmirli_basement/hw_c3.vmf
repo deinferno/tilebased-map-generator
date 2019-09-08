@@ -1,7 +1,7 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8163"
+	"editorbuild" "8343"
 	"mapversion" "20"
 	"formatversion" "100"
 	"prefab" "0"
@@ -640,7 +640,7 @@ world
 		side
 		{
 			"id" "1632"
-			"plane" "(-6.10352e-005 504 272) (-6.10352e-005 504 64) (7.99994 504 64)"
+			"plane" "(-6.10352e-05 504 272) (-6.10352e-05 504 64) (7.99994 504 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -662,7 +662,7 @@ world
 		side
 		{
 			"id" "1630"
-			"plane" "(-3.05176e-005 160 272) (-3.05176e-005 160 64) (-6.10352e-005 504 64)"
+			"plane" "(-3.05176e-05 160 272) (-3.05176e-05 160 64) (-6.10352e-05 504 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -673,7 +673,7 @@ world
 		side
 		{
 			"id" "1629"
-			"plane" "(7.99997 160 64) (7.99994 504 64) (-6.10352e-005 504 64)"
+			"plane" "(7.99997 160 64) (7.99994 504 64) (-6.10352e-05 504 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -684,7 +684,7 @@ world
 		side
 		{
 			"id" "1628"
-			"plane" "(7.99997 160 272) (7.99997 160 64) (-3.05176e-005 160 64)"
+			"plane" "(7.99997 160 272) (7.99997 160 64) (-3.05176e-05 160 64)"
 			"material" "STONE/STONESTAIR001A"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
@@ -695,7 +695,7 @@ world
 		side
 		{
 			"id" "1627"
-			"plane" "(-6.10352e-005 504 272) (7.99994 504 272) (7.99997 160 272)"
+			"plane" "(-6.10352e-05 504 272) (7.99994 504 272) (7.99997 160 272)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -716,7 +716,7 @@ world
 		side
 		{
 			"id" "1644"
-			"plane" "(-3.05176e-005 160 272) (7.99997 160 272) (7.99997 96 272)"
+			"plane" "(-3.05176e-05 160 272) (7.99997 160 272) (7.99997 96 272)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -727,7 +727,7 @@ world
 		side
 		{
 			"id" "1643"
-			"plane" "(-3.05176e-005 96 176) (-3.05176e-005 96 272) (7.99997 96 272)"
+			"plane" "(-3.05176e-05 96 176) (-3.05176e-05 96 272) (7.99997 96 272)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -738,7 +738,7 @@ world
 		side
 		{
 			"id" "1642"
-			"plane" "(7.99997 160 176) (7.99997 160 272) (-3.05176e-005 160 272)"
+			"plane" "(7.99997 160 176) (7.99997 160 272) (-3.05176e-05 160 272)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -760,7 +760,7 @@ world
 		side
 		{
 			"id" "1640"
-			"plane" "(-3.05176e-005 160 176) (-3.05176e-005 160 272) (-3.05176e-005 96 272)"
+			"plane" "(-3.05176e-05 160 176) (-3.05176e-05 160 272) (-3.05176e-05 96 272)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -771,7 +771,7 @@ world
 		side
 		{
 			"id" "1639"
-			"plane" "(-3.05176e-005 96 176) (7.99997 96 176) (7.99997 160 176)"
+			"plane" "(-3.05176e-05 96 176) (7.99997 96 176) (7.99997 160 176)"
 			"material" "STONE/STONESTAIR001A"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
@@ -792,7 +792,7 @@ world
 		side
 		{
 			"id" "1650"
-			"plane" "(7.99997 8 272) (7.99997 8 64) (-3.05176e-005 8 64)"
+			"plane" "(7.99997 8 272) (7.99997 8 64) (-3.05176e-05 8 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -814,7 +814,7 @@ world
 		side
 		{
 			"id" "1648"
-			"plane" "(-3.05176e-005 8 272) (-3.05176e-005 8 64) (-3.05176e-005 96 64)"
+			"plane" "(-3.05176e-05 8 272) (-3.05176e-05 8 64) (-3.05176e-05 96 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -825,7 +825,7 @@ world
 		side
 		{
 			"id" "1647"
-			"plane" "(-3.05176e-005 8 64) (7.99997 8 64) (7.99997 96 64)"
+			"plane" "(-3.05176e-05 8 64) (7.99997 8 64) (7.99997 96 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -836,7 +836,7 @@ world
 		side
 		{
 			"id" "1646"
-			"plane" "(-3.05176e-005 96 272) (-3.05176e-005 96 64) (7.99997 96 64)"
+			"plane" "(-3.05176e-05 96 272) (-3.05176e-05 96 64) (7.99997 96 64)"
 			"material" "STONE/STONESTAIR001A"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
@@ -847,7 +847,7 @@ world
 		side
 		{
 			"id" "1645"
-			"plane" "(7.99997 96 272) (7.99997 8 272) (-3.05176e-005 8 272)"
+			"plane" "(7.99997 96 272) (7.99997 8 272) (-3.05176e-05 8 272)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -868,7 +868,7 @@ world
 		side
 		{
 			"id" "1662"
-			"plane" "(7.99997 -3.05176e-005 272) (7.99997 -3.05176e-005 64) (7.99997 8 64)"
+			"plane" "(7.99997 -3.05176e-05 272) (7.99997 -3.05176e-05 64) (7.99997 8 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -890,7 +890,7 @@ world
 		side
 		{
 			"id" "1660"
-			"plane" "(96 -3.05176e-005 272) (96 -3.05176e-005 64) (7.99997 -3.05176e-005 64)"
+			"plane" "(96 -3.05176e-05 272) (96 -3.05176e-05 64) (7.99997 -3.05176e-05 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -901,7 +901,7 @@ world
 		side
 		{
 			"id" "1659"
-			"plane" "(96 8 64) (7.99997 8 64) (7.99997 -3.05176e-005 64)"
+			"plane" "(96 8 64) (7.99997 8 64) (7.99997 -3.05176e-05 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -912,7 +912,7 @@ world
 		side
 		{
 			"id" "1658"
-			"plane" "(96 8 272) (96 8 64) (96 -3.05176e-005 64)"
+			"plane" "(96 8 272) (96 8 64) (96 -3.05176e-05 64)"
 			"material" "STONE/STONESTAIR001A"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -923,7 +923,7 @@ world
 		side
 		{
 			"id" "1657"
-			"plane" "(96 -3.05176e-005 272) (7.99997 -3.05176e-005 272) (7.99997 8 272)"
+			"plane" "(96 -3.05176e-05 272) (7.99997 -3.05176e-05 272) (7.99997 8 272)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -944,7 +944,7 @@ world
 		side
 		{
 			"id" "1680"
-			"plane" "(504 8.00003 272) (504 8.00003 64) (504 3.05176e-005 64)"
+			"plane" "(504 8.00003 272) (504 8.00003 64) (504 3.05176e-05 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -966,7 +966,7 @@ world
 		side
 		{
 			"id" "1678"
-			"plane" "(504 3.05176e-005 272) (504 3.05176e-005 64) (160 -3.05176e-005 64)"
+			"plane" "(504 3.05176e-05 272) (504 3.05176e-05 64) (160 -3.05176e-05 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -977,7 +977,7 @@ world
 		side
 		{
 			"id" "1677"
-			"plane" "(160 -3.05176e-005 64) (504 3.05176e-005 64) (504 8.00003 64)"
+			"plane" "(160 -3.05176e-05 64) (504 3.05176e-05 64) (504 8.00003 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -988,7 +988,7 @@ world
 		side
 		{
 			"id" "1676"
-			"plane" "(160 -3.05176e-005 272) (160 -3.05176e-005 64) (160 8 64)"
+			"plane" "(160 -3.05176e-05 272) (160 -3.05176e-05 64) (160 8 64)"
 			"material" "STONE/STONESTAIR001A"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -999,7 +999,7 @@ world
 		side
 		{
 			"id" "1675"
-			"plane" "(160 8 272) (504 8.00003 272) (504 3.05176e-005 272)"
+			"plane" "(160 8 272) (504 8.00003 272) (504 3.05176e-05 272)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -1020,7 +1020,7 @@ world
 		side
 		{
 			"id" "1686"
-			"plane" "(160 8 272) (160 -3.05176e-005 272) (96 -3.05176e-005 272)"
+			"plane" "(160 8 272) (160 -3.05176e-05 272) (96 -3.05176e-05 272)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -1031,7 +1031,7 @@ world
 		side
 		{
 			"id" "1685"
-			"plane" "(160 -3.05176e-005 176) (160 -3.05176e-005 272) (160 8 272)"
+			"plane" "(160 -3.05176e-05 176) (160 -3.05176e-05 272) (160 8 272)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -1042,7 +1042,7 @@ world
 		side
 		{
 			"id" "1684"
-			"plane" "(96 8 176) (96 8 272) (96 -3.05176e-005 272)"
+			"plane" "(96 8 176) (96 8 272) (96 -3.05176e-05 272)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -1064,7 +1064,7 @@ world
 		side
 		{
 			"id" "1682"
-			"plane" "(96 -3.05176e-005 176) (96 -3.05176e-005 272) (160 -3.05176e-005 272)"
+			"plane" "(96 -3.05176e-05 176) (96 -3.05176e-05 272) (160 -3.05176e-05 272)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -1075,7 +1075,7 @@ world
 		side
 		{
 			"id" "1681"
-			"plane" "(160 -3.05176e-005 176) (160 8 176) (96 8 176)"
+			"plane" "(160 -3.05176e-05 176) (160 8 176) (96 8 176)"
 			"material" "STONE/STONESTAIR001A"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -4408,10 +4408,10 @@ world
 	}
 	solid
 	{
-		"id" "13790"
+		"id" "13750"
 		side
 		{
-			"id" "3052"
+			"id" "2980"
 			"plane" "(-16376 16376 16376) (16376 16376 16376) (16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4422,7 +4422,7 @@ world
 		}
 		side
 		{
-			"id" "3051"
+			"id" "2979"
 			"plane" "(-16376 16376 16376) (-16376 -16376 16376) (-16376 -16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -4433,7 +4433,7 @@ world
 		}
 		side
 		{
-			"id" "3050"
+			"id" "2978"
 			"plane" "(16376 16376 -16376) (16376 -16376 -16376) (16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -4444,7 +4444,7 @@ world
 		}
 		side
 		{
-			"id" "3049"
+			"id" "2977"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4455,7 +4455,7 @@ world
 		}
 		side
 		{
-			"id" "3048"
+			"id" "2976"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4466,7 +4466,7 @@ world
 		}
 		side
 		{
-			"id" "3047"
+			"id" "2975"
 			"plane" "(512 0 512) (512 512 512) (0 512 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4477,7 +4477,7 @@ world
 		}
 		editor
 		{
-			"color" "0 162 207"
+			"color" "0 172 213"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4485,10 +4485,10 @@ world
 	}
 	solid
 	{
-		"id" "13792"
+		"id" "13752"
 		side
 		{
-			"id" "3058"
+			"id" "2986"
 			"plane" "(-16376 -16376 -16376) (16376 -16376 -16376) (16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4499,7 +4499,7 @@ world
 		}
 		side
 		{
-			"id" "3057"
+			"id" "2985"
 			"plane" "(-16376 16376 16376) (-16376 -16376 16376) (-16376 -16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -4510,7 +4510,7 @@ world
 		}
 		side
 		{
-			"id" "3056"
+			"id" "2984"
 			"plane" "(16376 16376 -16376) (16376 -16376 -16376) (16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -4521,7 +4521,7 @@ world
 		}
 		side
 		{
-			"id" "3055"
+			"id" "2983"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4532,7 +4532,7 @@ world
 		}
 		side
 		{
-			"id" "3054"
+			"id" "2982"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4543,7 +4543,7 @@ world
 		}
 		side
 		{
-			"id" "3053"
+			"id" "2981"
 			"plane" "(512 512 0) (512 0 0) (0 0 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4554,7 +4554,7 @@ world
 		}
 		editor
 		{
-			"color" "0 162 207"
+			"color" "0 172 213"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4562,10 +4562,10 @@ world
 	}
 	solid
 	{
-		"id" "13794"
+		"id" "13754"
 		side
 		{
-			"id" "3064"
+			"id" "2992"
 			"plane" "(-16376 16376 16376) (-16376 -16376 16376) (-16376 -16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -4576,7 +4576,7 @@ world
 		}
 		side
 		{
-			"id" "3063"
+			"id" "2991"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4587,7 +4587,7 @@ world
 		}
 		side
 		{
-			"id" "3062"
+			"id" "2990"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4598,7 +4598,7 @@ world
 		}
 		side
 		{
-			"id" "3061"
+			"id" "2989"
 			"plane" "(0 512 512) (512 512 512) (512 0 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4609,7 +4609,7 @@ world
 		}
 		side
 		{
-			"id" "3060"
+			"id" "2988"
 			"plane" "(0 0 0) (512 0 0) (512 512 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4620,7 +4620,7 @@ world
 		}
 		side
 		{
-			"id" "3059"
+			"id" "2987"
 			"plane" "(0 0 0) (0 0 512) (0 512 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -4631,7 +4631,7 @@ world
 		}
 		editor
 		{
-			"color" "0 162 207"
+			"color" "0 172 213"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4639,10 +4639,10 @@ world
 	}
 	solid
 	{
-		"id" "13796"
+		"id" "13756"
 		side
 		{
-			"id" "3070"
+			"id" "2998"
 			"plane" "(16376 16376 -16376) (16376 -16376 -16376) (16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -4653,7 +4653,7 @@ world
 		}
 		side
 		{
-			"id" "3069"
+			"id" "2997"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4664,7 +4664,7 @@ world
 		}
 		side
 		{
-			"id" "3068"
+			"id" "2996"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4675,7 +4675,7 @@ world
 		}
 		side
 		{
-			"id" "3067"
+			"id" "2995"
 			"plane" "(0 512 512) (512 512 512) (512 0 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4686,7 +4686,7 @@ world
 		}
 		side
 		{
-			"id" "3066"
+			"id" "2994"
 			"plane" "(0 0 0) (512 0 0) (512 512 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4697,7 +4697,7 @@ world
 		}
 		side
 		{
-			"id" "3065"
+			"id" "2993"
 			"plane" "(512 0 512) (512 0 0) (512 512 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -4708,7 +4708,7 @@ world
 		}
 		editor
 		{
-			"color" "0 162 207"
+			"color" "0 172 213"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4716,10 +4716,10 @@ world
 	}
 	solid
 	{
-		"id" "13798"
+		"id" "13758"
 		side
 		{
-			"id" "3076"
+			"id" "3004"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4730,7 +4730,7 @@ world
 		}
 		side
 		{
-			"id" "3075"
+			"id" "3003"
 			"plane" "(0 512 512) (512 512 512) (512 0 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4741,7 +4741,7 @@ world
 		}
 		side
 		{
-			"id" "3074"
+			"id" "3002"
 			"plane" "(0 0 0) (512 0 0) (512 512 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4752,7 +4752,7 @@ world
 		}
 		side
 		{
-			"id" "3073"
+			"id" "3001"
 			"plane" "(0 512 512) (0 0 512) (0 0 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -4763,7 +4763,7 @@ world
 		}
 		side
 		{
-			"id" "3072"
+			"id" "3000"
 			"plane" "(512 512 0) (512 0 0) (512 0 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -4774,7 +4774,7 @@ world
 		}
 		side
 		{
-			"id" "3071"
+			"id" "2999"
 			"plane" "(0 512 0) (0 512 512) (512 512 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4785,7 +4785,7 @@ world
 		}
 		editor
 		{
-			"color" "0 162 207"
+			"color" "0 172 213"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4793,10 +4793,10 @@ world
 	}
 	solid
 	{
-		"id" "13800"
+		"id" "13760"
 		side
 		{
-			"id" "3082"
+			"id" "3010"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4807,7 +4807,7 @@ world
 		}
 		side
 		{
-			"id" "3081"
+			"id" "3009"
 			"plane" "(0 512 512) (512 512 512) (512 0 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4818,7 +4818,7 @@ world
 		}
 		side
 		{
-			"id" "3080"
+			"id" "3008"
 			"plane" "(0 0 0) (512 0 0) (512 512 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4829,7 +4829,7 @@ world
 		}
 		side
 		{
-			"id" "3079"
+			"id" "3007"
 			"plane" "(0 512 512) (0 0 512) (0 0 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -4840,7 +4840,7 @@ world
 		}
 		side
 		{
-			"id" "3078"
+			"id" "3006"
 			"plane" "(512 512 0) (512 0 0) (512 0 512)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -4851,7 +4851,7 @@ world
 		}
 		side
 		{
-			"id" "3077"
+			"id" "3005"
 			"plane" "(0 0 512) (0 0 0) (512 0 0)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -4862,7 +4862,7 @@ world
 		}
 		editor
 		{
-			"color" "0 162 207"
+			"color" "0 172 213"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -4921,8 +4921,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -4951,8 +4949,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_lcurve02_short.mdl"
@@ -4981,8 +4977,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5011,8 +5005,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5041,8 +5033,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5071,8 +5061,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_straight01_short.mdl"
@@ -5101,8 +5089,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_90degree01.mdl"
@@ -5131,8 +5117,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_straight01_short.mdl"
@@ -5161,8 +5145,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5191,8 +5173,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_lcurve02_short.mdl"
@@ -5221,8 +5201,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5251,8 +5229,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5281,8 +5257,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5311,8 +5285,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_straight01_short.mdl"
@@ -5341,8 +5313,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_90degree01.mdl"
@@ -5371,8 +5341,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_straight01_short.mdl"
@@ -5401,8 +5369,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5431,8 +5397,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_lcurve02_short.mdl"
@@ -5461,8 +5425,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5491,8 +5453,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5521,8 +5481,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5551,8 +5509,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_straight01_short.mdl"
@@ -5581,8 +5537,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_90degree01.mdl"
@@ -5611,8 +5565,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_straight01_short.mdl"
@@ -5641,8 +5593,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5671,8 +5621,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_lcurve02_short.mdl"
@@ -5701,8 +5649,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5731,8 +5677,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5761,8 +5705,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_connector01.mdl"
@@ -5791,8 +5733,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_straight01_short.mdl"
@@ -5821,8 +5761,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_90degree01.mdl"
@@ -5851,8 +5789,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_pipes/pipe03_straight01_short.mdl"
@@ -6091,7 +6027,7 @@ entity
 		{
 			"id" "1532"
 			"plane" "(504 416 176) (504 416 64) (512 416 64)"
-			"material" "STONE/STONESTAIR001A"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
 			"rotation" "90"
@@ -6181,7 +6117,7 @@ entity
 		{
 			"id" "1544"
 			"plane" "(352 504 176) (352 504 64) (352 512 64)"
-			"material" "STONE/STONESTAIR001A"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
 			"rotation" "90"
@@ -6226,8 +6162,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/coolingtank01.mdl"
@@ -6255,7 +6189,7 @@ entity
 		side
 		{
 			"id" "1626"
-			"plane" "(-3.05176e-005 160 176) (-3.05176e-005 160 64) (7.99997 160 64)"
+			"plane" "(-3.05176e-05 160 176) (-3.05176e-05 160 64) (7.99997 160 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -6266,7 +6200,7 @@ entity
 		side
 		{
 			"id" "1625"
-			"plane" "(-3.05176e-005 96 176) (-3.05176e-005 96 64) (-3.05176e-005 160 64)"
+			"plane" "(-3.05176e-05 96 176) (-3.05176e-05 96 64) (-3.05176e-05 160 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 22.9653] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -6288,7 +6222,7 @@ entity
 		side
 		{
 			"id" "1623"
-			"plane" "(7.99997 96 64) (7.99997 160 64) (-3.05176e-005 160 64)"
+			"plane" "(7.99997 96 64) (7.99997 160 64) (-3.05176e-05 160 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 22.9653] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -6299,8 +6233,8 @@ entity
 		side
 		{
 			"id" "1622"
-			"plane" "(7.99997 96 176) (7.99997 96 64) (-3.05176e-005 96 64)"
-			"material" "STONE/STONESTAIR001A"
+			"plane" "(7.99997 96 176) (7.99997 96 64) (-3.05176e-05 96 64)"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
 			"rotation" "90"
@@ -6310,7 +6244,7 @@ entity
 		side
 		{
 			"id" "1621"
-			"plane" "(-3.05176e-005 160 176) (7.99997 160 176) (7.99997 96 176)"
+			"plane" "(-3.05176e-05 160 176) (7.99997 160 176) (7.99997 96 176)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 22.9653] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -6345,7 +6279,7 @@ entity
 		side
 		{
 			"id" "1674"
-			"plane" "(96 -3.05176e-005 176) (96 -3.05176e-005 64) (96 8 64)"
+			"plane" "(96 -3.05176e-05 176) (96 -3.05176e-05 64) (96 8 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -6356,7 +6290,7 @@ entity
 		side
 		{
 			"id" "1673"
-			"plane" "(160 -3.05176e-005 176) (160 -3.05176e-005 64) (96 -3.05176e-005 64)"
+			"plane" "(160 -3.05176e-05 176) (160 -3.05176e-05 64) (96 -3.05176e-05 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 -41.0349] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -6378,7 +6312,7 @@ entity
 		side
 		{
 			"id" "1671"
-			"plane" "(160 8 64) (96 8 64) (96 -3.05176e-005 64)"
+			"plane" "(160 8 64) (96 8 64) (96 -3.05176e-05 64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 -41.0349] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -6389,8 +6323,8 @@ entity
 		side
 		{
 			"id" "1670"
-			"plane" "(160 8 176) (160 8 64) (160 -3.05176e-005 64)"
-			"material" "STONE/STONESTAIR001A"
+			"plane" "(160 8 176) (160 8 64) (160 -3.05176e-05 64)"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
 			"rotation" "90"
@@ -6400,7 +6334,7 @@ entity
 		side
 		{
 			"id" "1669"
-			"plane" "(160 -3.05176e-005 176) (96 -3.05176e-005 176) (96 8 176)"
+			"plane" "(160 -3.05176e-05 176) (96 -3.05176e-05 176) (96 8 176)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 -41.0349] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -6706,8 +6640,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002b.mdl"
@@ -6735,8 +6667,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002b.mdl"
@@ -6764,8 +6694,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002b.mdl"
@@ -6793,8 +6721,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002b.mdl"
@@ -6822,8 +6748,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002c.mdl"
@@ -6851,8 +6775,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002c.mdl"
@@ -6880,8 +6802,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002c.mdl"
@@ -6909,8 +6829,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002c.mdl"
@@ -8294,8 +8212,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002c.mdl"
@@ -8323,8 +8239,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002b.mdl"
@@ -8352,8 +8266,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002b.mdl"
@@ -8381,8 +8293,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002c.mdl"
@@ -8410,8 +8320,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002b.mdl"
@@ -8439,8 +8347,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002c.mdl"
@@ -8468,8 +8374,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002b.mdl"
@@ -8497,8 +8401,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/interior_fence002c.mdl"
@@ -8526,8 +8428,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_nuke/crate_extralarge.mdl"
@@ -8555,8 +8455,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_nuke/crate_extralarge.mdl"
@@ -9520,8 +9418,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_nuke/crate_extrasmall.mdl"
@@ -9549,8 +9445,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_nuke/crate_extrasmall.mdl"
@@ -9578,8 +9472,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_nuke/crate_extrasmall.mdl"
@@ -9607,8 +9499,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_nuke/crate_extrasmall.mdl"
@@ -9636,8 +9526,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_nuke/crate_extrasmall.mdl"
@@ -9665,8 +9553,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_nuke/crate_extrasmall.mdl"
@@ -9694,8 +9580,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props/de_nuke/crate_extrasmall.mdl"
@@ -9723,8 +9607,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/prison_flourescentlight002b.mdl"
@@ -9752,8 +9634,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/prison_flourescentlight002b.mdl"
@@ -9781,8 +9661,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/prison_flourescentlight002b.mdl"
@@ -9810,8 +9688,6 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
-	"lightmapresolutionx" "32"
-	"lightmapresolutiony" "32"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_wasteland/prison_flourescentlight002b.mdl"
@@ -9849,7 +9725,6 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_c17/oildrum001.mdl"
-	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -9892,7 +9767,6 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_c17/oildrum001.mdl"
-	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -9935,7 +9809,6 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_junk/wood_crate001a.mdl"
-	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"
@@ -9978,7 +9851,6 @@ entity
 	"mindxlevel" "0"
 	"minhealthdmg" "0"
 	"model" "models/props_junk/wood_crate001a.mdl"
-	"modelscale" "1.0"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"

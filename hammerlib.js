@@ -73,23 +73,23 @@ class Vector {
 	}
 
 	fix(){
-		return new Vector(this.x.toFixed(8),this.y.toFixed(8),this.z.toFixed(8))
+		return new Vector(this.x.toFixed(4),this.y.toFixed(4),this.z.toFixed(4))
 	}
 
 	rotateX(a){
 		a = radians(a)
-		return new Vector(this.x,(this.y*Math.cos(a)-(this.z*Math.sin(a))).toFixed(8),(this.y*Math.sin(a)+this.z*Math.cos(a)).toFixed(8), this.sbrackets)
+		return new Vector(this.x,(this.y*Math.cos(a)-(this.z*Math.sin(a))).toFixed(4),(this.y*Math.sin(a)+this.z*Math.cos(a)).toFixed(4), this.sbrackets)
 	}
 
 	rotateY(a){
 		a = radians(a)
-		return new Vector((this.x*Math.cos(a)+(this.z*Math.sin(a))).toFixed(8),this.y,(-this.x*Math.sin(a)+this.z*Math.cos(a)).toFixed(8), this.sbrackets)
+		return new Vector((this.x*Math.cos(a)+(this.z*Math.sin(a))).toFixed(4),this.y,(-this.x*Math.sin(a)+this.z*Math.cos(a)).toFixed(4), this.sbrackets)
 	}
 
 
 	rotateZ(a){
 		a = radians(a)
-		return new Vector((this.x*Math.cos(a)-(this.y*Math.sin(a))).toFixed(8),(this.x*Math.sin(a)+this.y*Math.cos(a)).toFixed(8),this.z, this.sbrackets)
+		return new Vector((this.x*Math.cos(a)-(this.y*Math.sin(a))).toFixed(4),(this.x*Math.sin(a)+this.y*Math.cos(a)).toFixed(4),this.z, this.sbrackets)
 	}
 
 }
@@ -108,7 +108,7 @@ class UVMap {
 
 	rotateZ(a){
 		a = radians(a)
-		return new UVMap((this.x*Math.cos(a)-(this.y*Math.sin(a))).toFixed(8),(this.x*Math.sin(a)+this.y*Math.cos(a)).toFixed(8),this.z, this.shift, this.scale)
+		return new UVMap((this.x*Math.cos(a)-(this.y*Math.sin(a))).toFixed(4),(this.x*Math.sin(a)+this.y*Math.cos(a)).toFixed(4),this.z, this.shift, this.scale)
 	}
 
 	toString(){

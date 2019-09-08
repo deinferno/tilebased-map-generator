@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8163"
-	"mapversion" "8"
+	"editorbuild" "8261"
+	"mapversion" "10"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "8"
+	"mapversion" "10"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2916,7 +2916,7 @@ world
 	}
 	solid
 	{
-		"id" "3996"
+		"id" "4134"
 		side
 		{
 			"id" "1521"
@@ -2985,7 +2985,7 @@ world
 		}
 		editor
 		{
-			"color" "0 230 219"
+			"color" "0 124 153"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -2993,7 +2993,7 @@ world
 	}
 	solid
 	{
-		"id" "3998"
+		"id" "4136"
 		side
 		{
 			"id" "1527"
@@ -3062,7 +3062,7 @@ world
 		}
 		editor
 		{
-			"color" "0 230 219"
+			"color" "0 124 153"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -3070,7 +3070,7 @@ world
 	}
 	solid
 	{
-		"id" "4000"
+		"id" "4138"
 		side
 		{
 			"id" "1533"
@@ -3139,7 +3139,7 @@ world
 		}
 		editor
 		{
-			"color" "0 230 219"
+			"color" "0 124 153"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -3147,7 +3147,7 @@ world
 	}
 	solid
 	{
-		"id" "4002"
+		"id" "4140"
 		side
 		{
 			"id" "1539"
@@ -3216,7 +3216,7 @@ world
 		}
 		editor
 		{
-			"color" "0 230 219"
+			"color" "0 124 153"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -3224,7 +3224,7 @@ world
 	}
 	solid
 	{
-		"id" "4004"
+		"id" "4142"
 		side
 		{
 			"id" "1545"
@@ -3293,7 +3293,7 @@ world
 		}
 		editor
 		{
-			"color" "0 230 219"
+			"color" "0 124 153"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -3301,7 +3301,7 @@ world
 	}
 	solid
 	{
-		"id" "4006"
+		"id" "4144"
 		side
 		{
 			"id" "1551"
@@ -3370,7 +3370,7 @@ world
 		}
 		editor
 		{
-			"color" "0 230 219"
+			"color" "0 124 153"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -6572,7 +6572,7 @@ entity
 	"id" "3984"
 	"classname" "func_portaldoor"
 	"connectiontype" "1"
-
+	"mustconnect" "0"
 	solid
 	{
 		"id" "3985"
