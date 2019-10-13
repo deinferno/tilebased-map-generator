@@ -14,7 +14,7 @@ var argv = process.argv.slice(2)
 const TILEMAP_LIMIT = parseInt(argv[0]) || 32;
 seed = seed(argv[1])
 log('Seed is ' + seed);
-var debug = argv[2]
+var debug = argv[2] ? true : false
 log('Debug: '+debug)
 
 var random = seedrandom(seed);
@@ -43,12 +43,14 @@ for (let filename of files) {
 	let { tiles,times } = vmf.parse('tiles/' + filename);
 	if (filename.startsWith('post_')) {
 		log(' *Post tile');
-		tiles[3].onlyOnce();
-		special_tiles_o.push(tiles[3]);
+		var tile = tiles[Math.round(random() * (tiles.length - 1 ) )]
+		tile.onlyOnce();
+		special_tiles_o.push(tile);
 	} else if (filename.startsWith('once_')) {
 		log(' *Once tile');
-		tiles[3].onlyOnce();
-		tiles_o.push(tiles[3]);
+		var tile = tiles[Math.round(random() * (tiles.length - 1) )]
+		tile.onlyOnce();
+		tiles_o.push(tile);
 	} else if (filename.startsWith('meta_')) {
 		metatiles = metatiles.concat(tiles);
 		log(' *META TILE*');
@@ -225,7 +227,7 @@ function tryAddTiles(tileset, prevtile, sides, center, cbounds, index) {
 
 					tilemap_num++;
 
-					log('Connecting tile #' + tilemap_num + ' index:' + rindex);
+					log('Connecting tile #' + tilemap_num + ' '+tile.type+' index:' + rindex);
 					log(' ' + vmf.snames[skey] + ' <-> ' + vmf.snames[tside]);
 					log(' Offset:' + offset);
 
@@ -386,6 +388,7 @@ function removeTiles() { // Recursively removes tiles that doesn't obey restrict
 var tiles;
 var special_tiles;
 var second_tryhard = 0;
+var second_succ = false;
 
 while (true){
 	tiles = tiles_o.slice(0);
@@ -470,7 +473,7 @@ while (true){
 		//retry();
 		//}, 50);
 		continue
-	} else if (second_tryhard>=2){log('WARNING:Second stage failed 2 times. You may need to add post_ tiles yourself');}
+	} else if (second_tryhard>=2){log('WARNING:Second stage failed 2 times. You may need to add post_ tiles yourself');} else {second_succ=true;}
 	
 
 	loopDoors();
@@ -486,10 +489,12 @@ while (true){
 			ctile = data[0].deepcopy()
 		}
 
+		log("Merging "+ctile.type+" #"+key)
+
 		if (toremove[key]){
 			for (let data of toremove[key]){
 			if (!data){continue;}
-			if (!data[1]){ctile.switchDoorVisGroup(data[0])};
+			ctile.switchDoorVisGroup(data[0],data[1]);
 			ctile.removePortalByID(data[0], data[1]);
 			}
 		}
@@ -498,7 +503,6 @@ while (true){
 			ctile.switchVisGroups(random);
 			continue
 		}
-		//console.log("Ctile "+ctile.getMaximumID()+" MTile "+metatile.getMaximumID())
 		metatile.addToID(ctile.getMaximumID())
 		ctile.switchVisGroups(random);
 		ctile.localizeTargetnames(key);
@@ -518,5 +522,10 @@ metatile.unEntityPortals()
 log("Writing to file")
 
 fs.writeFileSync('combined.vmf', metatile.getCode())
+
+log('Seed is ' + seed);
+log('Total tiles amount ' + tileweb.length);
+log('Debug: '+debug);
+log('Second stage succeeded: '+second_succ)
 
 }

@@ -253,6 +253,7 @@
 			var uvmap = this.UVMap
 
 			if (origin){this.prop.origin = origin.subtract(center).rotateZ(angle).add(center).toString()}
+			if (this.prop.movedir){this.prop.movedir = VMFVector(this.prop.movedir).add(new hlib.Vector(0,angle,0)).toString()}
 			if (angles){angles.y+=angle;this.prop.angles = angles.toString()}
 			if (planes){this.prop.plane = planes[0].subtract(center).rotateZ(angle).add(center).toString()+' '+planes[1].subtract(center).rotateZ(angle).add(center).toString()+' '+planes[2].subtract(center).rotateZ(angle).add(center).toString()}
 			if (uvmap){
@@ -554,38 +555,41 @@
 			this.entity.push(info_null);
 		}
 
-		switchDoorVisGroup(holeid){
+		switchDoorVisGroup(holeid,disableonly){
 			if (!this.visgroups||!this.visgroups.children.visgroup){return}
 			if (holeid&&!this.getEntityByID(holeid)){return}
-			var visgroup = holeid ? this.getEntityByID(holeid).prop.enablevisgroup : "";
-			var visgroupid;
 
-			for (let evisgroup of (this.visgroups.children.visgroup.type == 'visgroup' ? [this.visgroups.children.visgroup] : this.visgroups.children.visgroup)){
-				let name = evisgroup.prop.name
-				if (name==visgroup){
-					visgroupid=evisgroup.prop.visgroupid
-					log("Enabling visgroup "+name)
-					break
-				}
-			}
-
-			if (visgroupid){
-				if (this.world.children.hidden){
-					for (let hidden of (this.world.children.hidden.type == 'hidden' ? [this.world.children.hidden] : this.world.children.hidden)){
-						let solid = hidden.children.solid
-						if (solid.children.editor.prop.visgroupid==visgroupid){
-							solid.children.editor.prop.visgroupshown = '1'
-							this.children.world.children.solid.push(solid)
-						}
+			if (!disableonly){
+				var visgroup = holeid ? this.getEntityByID(holeid).prop.enablevisgroup : "";
+				var visgroupid;
+	
+				for (let evisgroup of (this.visgroups.children.visgroup.type == 'visgroup' ? [this.visgroups.children.visgroup] : this.visgroups.children.visgroup)){
+					let name = evisgroup.prop.name
+					if (name==visgroup){
+						visgroupid=evisgroup.prop.visgroupid
+						log("Enabling visgroup "+name)
+						break
 					}
 				}
 	
-				if (this.children.hidden){
-					for (let hidden of (this.children.hidden.type == 'hidden' ? [this.children.hidden] : this.children.hidden)){
-						let entity = hidden.children.entity
-						if (entity.children.editor.prop.visgroupid==visgroupid){
-							entity.children.editor.prop.visgroupshown = '1'
-							this.entity.push(entity)
+				if (visgroupid){
+					if (this.world.children.hidden){
+						for (let hidden of (this.world.children.hidden.type == 'hidden' ? [this.world.children.hidden] : this.world.children.hidden)){
+							let solid = hidden.children.solid
+							if (solid.children.editor.prop.visgroupid==visgroupid){
+								solid.children.editor.prop.visgroupshown = '1'
+								this.children.world.children.solid.push(solid)
+							}
+						}
+					}
+		
+					if (this.children.hidden){
+						for (let hidden of (this.children.hidden.type == 'hidden' ? [this.children.hidden] : this.children.hidden)){
+							let entity = hidden.children.entity
+							if (entity.children.editor.prop.visgroupid==visgroupid){
+								entity.children.editor.prop.visgroupshown = '1'
+								this.entity.push(entity)
+							}
 						}
 					}
 				}
