@@ -21,7 +21,7 @@
 			for (let key in tileweb){
 				let ctile = tileweb[key]
 				if (ctile[0].type=='post_library_hspawn.vmf'||ctile[0].type=='post_library_zspawn.vmf'){
-					if (ctile[2].add(ctile[3]).distance(center)<4096){log('Too close to other spawn');return true}
+					if (ctile[2].add(ctile[3]).distance(center)<8192){log('Too close to other spawn');return true}
 					break
 				}
 			}
